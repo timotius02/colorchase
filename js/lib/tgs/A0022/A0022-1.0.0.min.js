@@ -1,0 +1,2 @@
+/* Copyright (c) 2013 TreSensa, Inc. All Rights Reserved. */
+!function(){TGS.Adapters.A0022=function(){TGS.Adapters.A0022.superclass.constructor.call(this),TGS.DataStore._sSaveToLocalStorage=!0,TGS.DataStore._sSaveToTGSServer=!1},TGS.Adapters.A0022.prototype={connect:function(){var a=this;GameAPI.loadAPI(function(){TGS._sConfig.ADS.INTERSTITIAL_INTERVAL=-1,a.getLoginStatus()})},advertising_injectInterstitial:function(a){GameAPI.GameBreak.request(function(){},function(){a.closeCallback&&a.closeCallback()})}},extend(TGS.Adapters.A0022,TGS.PartnerBridge)}();
