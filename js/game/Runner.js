@@ -11,6 +11,11 @@ Runner = function()
         {id:'stationary_obstacle_3',    url:'stationaryObstacles/stationary_obstacle_3.png'},
         {id:'stationary_obstacle_4',    url:'stationaryObstacles/stationary_obstacle_4.png'},
         {id:'stationary_obstacle_5',    url:'stationaryObstacles/stationary_obstacle_5.png'},
+        {id:'stationary_obstacle_6',    url:'stationaryObstacles/stationary_obstacle_6.png'},
+        {id:'stationary_obstacle_7',    url:'stationaryObstacles/stationary_obstacle_7.png'},
+        {id:'stationary_obstacle_8',    url:'stationaryObstacles/stationary_obstacle_8.png'},
+        {id:'stationary_obstacle_9',    url:'stationaryObstacles/stationary_obstacle_9.png'},
+        {id:'stationary_obstacle_10',    url:'stationaryObstacles/stationary_obstacle_10.png'},
 
 
         //Moving Obstacles
@@ -28,7 +33,7 @@ Runner = function()
 
         // Backgrounds
         {id:'startscreen_background',   url:'screens/startscreen_background.jpg'},
-        {id:'endscreen_background',   	url:'screens/endscreen_background.jpg'},
+        {id:'endscreen_background',   	url:'screens/endscreen_background.png'},
         {id:'gamescreen_background',   	url:'screens/gamescreen_background.jpg'},
         {id:'gamescreen_ground',   		url:'screens/gamescreen_ground.png'},
         {id:'gamescreen_middleground',  url:'screens/gamescreen_middleground.png'},

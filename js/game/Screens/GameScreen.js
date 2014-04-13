@@ -30,7 +30,9 @@ GameScreen = function(width, height) {
 	this.addEventListener("mouseup", this.MouseUp.bind(this));
 
 	//CUSTOM
-	this.colors = ["blue", "green", "pink", "grey", "black"];
+	//this.colors = ["blue","green","pink","teal","white","yellow","brown","cream","grey","mint", "navy", "orange", "purple"];
+
+	this.colors = ["blue","green","pink","white","yellow","brown","mint", "navy", "orange", "purple"];
 	this.currKey = "None";
 
 };
@@ -229,7 +231,7 @@ GameScreen.prototype = {
 	},
 
 	spawnColors: function(){
-		var numCoins = 5;
+		var numCoins = 10;
 
 
 
@@ -247,7 +249,7 @@ GameScreen.prototype = {
 		// console.log(notCorrect1);
 		// console.log(notCorrect2);
 
-		var heights = [0, 200, 400];
+		var heights = [100, 250, 400];
 
 		function shuffle(o){ //v1.0
 	    	for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
@@ -376,12 +378,12 @@ GameScreen.prototype = {
 			trackingSpeed : 0.25 
 		}));
 		
-		// //Scrolling ground plane
-		// this.artLayer.addChild(new TGE.ParallaxPane().setup({
-		// 	image : "gamescreen_ground",
-		// 	worldY: 12,
-		// 	trackingSpeed : 0.6
-		// }));
+		//Scrolling ground plane
+		this.artLayer.addChild(new TGE.ParallaxPane().setup({
+			image : "gamescreen_ground",
+			worldY: 12,
+			trackingSpeed : 0.6
+		}));
 	},
 	
 	SetupHud : function() {
@@ -418,14 +420,14 @@ GameScreen.prototype = {
 			color : "white"
 		}));
 		
-		//Coin icon that sits in front of the coins collected number
-		this.addChild(new TGE.Sprite().setup({
-			x : 25,
-			y : 65,
-			image : "coin",
-			scaleX : 0.75,
-			scaleY : 0.75
-		}));
+		// //Coin icon that sits in front of the coins collected number
+		// this.addChild(new TGE.Sprite().setup({
+		// 	x : 25,
+		// 	y : 65,
+		// 	image : "coin",
+		// 	scaleX : 0.75,
+		// 	scaleY : 0.75
+		// }));
 
 	},
 
