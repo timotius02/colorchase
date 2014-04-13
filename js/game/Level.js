@@ -2,7 +2,7 @@
 
 var level = [
 
-    {player_speed:0.015},
+    {player_speed:0.01},
     {fall_speed:0.003},
     {boost_speed:0.01},
 

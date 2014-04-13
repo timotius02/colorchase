@@ -30,7 +30,8 @@ GameScreen = function(width, height) {
 	this.addEventListener("mouseup", this.MouseUp.bind(this));
 
 	//CUSTOM
-	this.currKey = 0;
+	this.colors = ["blue", "green", "pink", "grey", "black"];
+	this.currKey = "None";
 
 };
 
@@ -77,8 +78,9 @@ GameScreen.prototype = {
 
 		// Update the distance and coin displays
 		this.distanceDisplay.text = Math.floor(this.mDistance).toString();
-		this.coinDisplay.text = Math.floor(this.mCoins).toString();
-		
+		//this.coinDisplay.text = Math.floor(this.mCoins).toString();
+		this.coinDisplay.text = this.currKey;	
+
 		// Read & make level
 		this.ReadNextEvent(event.elapsedTime);
 		this.SpawnObstacles(event.elapsedTime);
@@ -161,6 +163,7 @@ GameScreen.prototype = {
 				}
 
 				else if (nextEvent.event == "random2") {
+					console.log(this.mPlayer.mHorizontalSpeed);
 					this.spawnColors();
 				}
 				
@@ -169,7 +172,8 @@ GameScreen.prototype = {
 					//this.EndGame();
 
 					this.mEventIndex = 3;
-					//this.mPlayer.SetSpeed(this.mPlayer.mHorizontalSpeed + 0.001);
+					//this.mPlayer.SetSpeed(this.mPlayer.mHorizontalSpeed);
+					this.mPlayer.mHorizontalSpeed = this.mPlayer.mHorizontalSpeed * 1.1;
 				}
 
 				this.mEventIndex++;
@@ -227,7 +231,10 @@ GameScreen.prototype = {
 	spawnColors: function(){
 		var numCoins = 5;
 
+
+
 		var num = Math.floor(Math.random()*numCoins);
+		this.currKey = this.colors[num];
 
 		var notCorrect1 = notCorrect2 = 0;
 
@@ -236,9 +243,9 @@ GameScreen.prototype = {
 			notCorrect2 = Math.floor(Math.random() * numCoins);
 		} while (num === notCorrect1 || num === notCorrect2 || notCorrect1 === notCorrect2);
 
-		console.log(num);
-		console.log(notCorrect1);
-		console.log(notCorrect2);
+		// console.log(num);
+		// console.log(notCorrect1);
+		// console.log(notCorrect2);
 
 		var heights = [0, 200, 400];
 
@@ -247,18 +254,23 @@ GameScreen.prototype = {
 	    	return o;
 		};
 
+		function genRandInt(a, b){
+			var ret = Math.floor(Math.random() * (a - b));
+			return ret + b;
+		}
+
 		heights = shuffle(heights);
-		console.log(heights[0]+"," + heights[1]+","+heights[2]);
+		//console.log(heights[0]+"," + heights[1]+","+heights[2]);
 
 		this.obstacleLayer.addChild(new SafeObstacle().setup({
-			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2,
+			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + genRandInt(-300, 300),
 			type : "2",
 			worldY: heights[0],
 			image :"stationary_obstacle_"+ (++num),
 			gameScreen : this
 		}));
 		this.obstacleLayer.addChild(new StationaryObstacle().setup({
-			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2,
+			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + genRandInt(-300, 300),
 			type : "2",
 			worldY: heights[1],
 			image :"stationary_obstacle_" + (++notCorrect1),
@@ -266,7 +278,7 @@ GameScreen.prototype = {
 		}));
 
 		this.obstacleLayer.addChild(new StationaryObstacle().setup({
-			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2,
+			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + genRandInt(-300, 300),
 			type : "2",
 			worldY: heights[2],
 			image :"stationary_obstacle_" + (++notCorrect2),
@@ -401,7 +413,7 @@ GameScreen.prototype = {
 		this.coinDisplay = this.UILayer.addChild(new TGE.Text().setup({
 			x : 72,
 			y : 65,
-			text : "0",
+			text : "None",
 			font : "Tahoma 20px",
 			color : "white"
 		}));
