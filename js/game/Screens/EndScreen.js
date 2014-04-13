@@ -24,9 +24,9 @@ EndScreen = function() {
     
     // Display final score
     this.addChild(this.coinDisplay = new TGE.Text().setup({
-        x : this.percentageOfWidth(0.55),
+        x : this.percentageOfWidth(0.68),
         y : this.percentageOfHeight(0.62),
-        font : "50px Tahoma",
+        font : "60px Tahoma",
         color: "white"
     }));
     
