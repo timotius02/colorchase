@@ -252,8 +252,8 @@ GameScreen.prototype = {
 		var heights = [100, 250, 400];
 
 		function shuffle(o){ //v1.0
-	    	for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-	    	return o;
+			for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+				return o;
 		};
 
 		function genRandInt(a, b){
@@ -370,7 +370,7 @@ GameScreen.prototype = {
 		// 	worldY: 450,
 		// 	trackingSpeed : 0.1,
 		// }));
-		
+
 		//Middle ground plane
 		this.artLayer.addChild(new TGE.ParallaxPane().setup({
 			image : "gamescreen_middleground",
@@ -429,10 +429,10 @@ GameScreen.prototype = {
 		// 	scaleY : 0.75
 		// }));
 
-	},
+},
 
-	PlayerHitCoin : function(params) 
-	{
+PlayerHitCoin : function(params) 
+{
 		//Play sound
 		TGE.Game.GetInstance().audioManager.Play({
 			id : 'hitCoin_sound',
@@ -451,8 +451,13 @@ GameScreen.prototype = {
 			loop : '0'
 		});
 
-		//End game
-		this.EndGame();
+
+
+		setTimeout(function(){
+			this.EndGame();	
+		}.bind(this), 2000);
+
+
 	},
 	
 	GetScore : function() {

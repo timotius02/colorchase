@@ -8,25 +8,26 @@ EndScreen = function() {
     	image: "endscreen_background",
     }));
     
-    // Display distance traveled
-	this.addChild(this.distanceDisplay = new TGE.Text().setup({
-        x : this.percentageOfWidth(0.9),
-        y : this.percentageOfHeight(0.25),
-        font : "Tahoma 20px",
-    }));
+ //    // Display distance traveled
+	// this.addChild(this.distanceDisplay = new TGE.Text().setup({
+ //        x : this.percentageOfWidth(0.9),
+ //        y : this.percentageOfHeight(0.25),
+ //        font : "Tahoma 20px",
+ //    }));
     
-    // Display coins earned
-	this.addChild(this.coinDisplay = new TGE.Text().setup({
-        x : this.percentageOfWidth(0.9),
-        y : this.percentageOfHeight(0.32),
-        font : "Tahoma 20px",
-    }));
+ //    // Display coins earned
+	// this.addChild(this.coinDisplay = new TGE.Text().setup({
+ //        x : this.percentageOfWidth(0.9),
+ //        y : this.percentageOfHeight(0.32),
+ //        font : "Tahoma 20px",
+ //    }));
     
     // Display final score
-    this.addChild(this.scoreDisplay = new TGE.Text().setup({
-        x : this.percentageOfWidth(0.9),
-        y : this.percentageOfHeight(0.45),
-        font : "Tahoma 20px",
+    this.addChild(this.coinDisplay = new TGE.Text().setup({
+        x : this.percentageOfWidth(0.55),
+        y : this.percentageOfHeight(0.62),
+        font : "Tahoma 50px",
+        color: "white"
     }));
     
     // Try Again button
@@ -49,9 +50,9 @@ EndScreen.prototype = {
 		EndScreen.superclass.setup.call(this, params);
 
 		// Update final totals
+		//this.coinDisplay.text = params.coins.toString();
+		//this.distanceDisplay.text = params.distance.toString();
 		this.coinDisplay.text = params.coins.toString();
-		this.distanceDisplay.text = params.distance.toString();
-		this.scoreDisplay.text = params.score.toString();
 	    
 	    return this;
 	},
