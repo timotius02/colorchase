@@ -39,9 +39,10 @@ Player.prototype = {
 			rows : 1,
 			columns : 4,
 			totalFrames : 4,
-			fps : 24,
+			fps : 8,
 			looping : true,
-			visible : false
+			visible : false,
+			scale: .7
 		}));
 		
 		// Flying animation
@@ -52,7 +53,8 @@ Player.prototype = {
 	        totalFrames : 4,
 	        fps : 24,
 	        looping : true,
-	        visible : false
+	        visible : false,
+	        scale: .7
 		}));
 
 		// Start player out running

@@ -30,9 +30,10 @@ GameScreen = function(width, height) {
 	this.addEventListener("mouseup", this.MouseUp.bind(this));
 
 	//CUSTOM
-	//this.colors = ["blue","green","pink","teal","white","yellow","brown","cream","grey","mint", "navy", "orange", "purple"];
+	this.colors = ["blue", "green", "pink", "white", "yellow", "red", "grey", "orange", "purple"];
+																		//teal  //navy
 
-	this.colors = ["blue","green","pink","white","yellow","brown","mint", "navy", "orange", "purple"];
+	//this.color = ["blue", ""];
 	this.currKey = "None";
 
 };
@@ -81,7 +82,7 @@ GameScreen.prototype = {
 		// Update the distance and coin displays
 		this.distanceDisplay.text = Math.floor(this.mDistance).toString();
 		//this.coinDisplay.text = Math.floor(this.mCoins).toString();
-		this.coinDisplay.text = this.currKey;	
+		//this.coinDisplay.text = this.currKey;	
 
 		// Read & make level
 		this.ReadNextEvent(event.elapsedTime);
@@ -231,12 +232,14 @@ GameScreen.prototype = {
 	},
 
 	spawnColors: function(){
-		var numCoins = 10;
+		var numCoins = 9;
 
 
 
 		var num = Math.floor(Math.random()*numCoins);
 		this.currKey = this.colors[num];
+
+		//this.artLayer.getChildAt(1).image = this.colors[num] + ".png";
 
 		var notCorrect1 = notCorrect2 = 0;
 
@@ -249,11 +252,11 @@ GameScreen.prototype = {
 		// console.log(notCorrect1);
 		// console.log(notCorrect2);
 
-		var heights = [100, 250, 400];
+		var heights = [50, 225, 400];
 
 		function shuffle(o){ //v1.0
-			for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-				return o;
+	    	for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+	    	return o;
 		};
 
 		function genRandInt(a, b){
@@ -265,14 +268,22 @@ GameScreen.prototype = {
 		//console.log(heights[0]+"," + heights[1]+","+heights[2]);
 
 		this.obstacleLayer.addChild(new SafeObstacle().setup({
-			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + genRandInt(-300, 300),
+			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + -600,
+			type : "2",
+			worldY: -50,
+			image :this.colors[num],
+			gameScreen : this
+		}));
+
+		this.obstacleLayer.addChild(new SafeObstacle().setup({
+			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + genRandInt(-250, 250),
 			type : "2",
 			worldY: heights[0],
 			image :"stationary_obstacle_"+ (++num),
 			gameScreen : this
 		}));
 		this.obstacleLayer.addChild(new StationaryObstacle().setup({
-			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + genRandInt(-300, 300),
+			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + genRandInt(-250, 250),
 			type : "2",
 			worldY: heights[1],
 			image :"stationary_obstacle_" + (++notCorrect1),
@@ -280,7 +291,7 @@ GameScreen.prototype = {
 		}));
 
 		this.obstacleLayer.addChild(new StationaryObstacle().setup({
-			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + genRandInt(-300, 300),
+			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + genRandInt(-250, 250),
 			type : "2",
 			worldY: heights[2],
 			image :"stationary_obstacle_" + (++notCorrect2),
@@ -370,7 +381,7 @@ GameScreen.prototype = {
 		// 	worldY: 450,
 		// 	trackingSpeed : 0.1,
 		// }));
-
+		
 		//Middle ground plane
 		this.artLayer.addChild(new TGE.ParallaxPane().setup({
 			image : "gamescreen_middleground",
@@ -379,11 +390,14 @@ GameScreen.prototype = {
 		}));
 		
 		//Scrolling ground plane
-		this.artLayer.addChild(new TGE.ParallaxPane().setup({
-			image : "gamescreen_ground",
-			worldY: 12,
-			trackingSpeed : 0.6
-		}));
+		// this.artLayer.addChild(new TGE.ParallaxPane().setup({
+		// 	name: "colorWord",
+		// 	image : "blue.png",
+		// 	worldY: 12,
+		// 	trackingSpeed : 0.3
+		// }));
+
+		//console.log(this.artLayer);
 	},
 	
 	SetupHud : function() {
@@ -403,22 +417,22 @@ GameScreen.prototype = {
 		}));
 		
 		//Feet icon that sits in front of the distance traveled number
-		this.addChild(new TGE.Sprite().setup({
-			x : 25,
-			y : 22,
-			image : "distance_ui",
-			scaleX : 0.5,
-			scaleY : 0.5
-		}));
+		// this.addChild(new TGE.Sprite().setup({
+		// 	x : 25,
+		// 	y : 22,
+		// 	image : "distance_ui",
+		// 	scaleX : 0.5,
+		// 	scaleY : 0.5
+		// }));
 
-		//Text that displays coins collected
-		this.coinDisplay = this.UILayer.addChild(new TGE.Text().setup({
-			x : 72,
-			y : 65,
-			text : "None",
-			font : "Tahoma 20px",
-			color : "white"
-		}));
+		// //Text that displays coins collected
+		// this.coinDisplay = this.UILayer.addChild(new TGE.Text().setup({
+		// 	x : 72,
+		// 	y : 65,
+		// 	text : "None",
+		// 	font : "Tahoma 20px",
+		// 	color : "white"
+		// }));
 		
 		// //Coin icon that sits in front of the coins collected number
 		// this.addChild(new TGE.Sprite().setup({
@@ -429,10 +443,10 @@ GameScreen.prototype = {
 		// 	scaleY : 0.75
 		// }));
 
-},
+	},
 
-PlayerHitCoin : function(params) 
-{
+	PlayerHitCoin : function(params) 
+	{
 		//Play sound
 		TGE.Game.GetInstance().audioManager.Play({
 			id : 'hitCoin_sound',
@@ -445,19 +459,19 @@ PlayerHitCoin : function(params)
 	
 	PlayerHitObstacle : function() 
 	{
+		TGE.Game.GetInstance().audioManager.StopAll();
+
 		//Play sound
 		TGE.Game.GetInstance().audioManager.Play({
 			id : 'hitObstacle_sound',
 			loop : '0'
 		});
 
-
+		//End game
 
 		setTimeout(function(){
-			this.EndGame();	
+			this.EndGame();
 		}.bind(this), 2000);
-
-
 	},
 	
 	GetScore : function() {

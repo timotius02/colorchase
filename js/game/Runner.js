@@ -15,7 +15,17 @@ Runner = function()
         {id:'stationary_obstacle_7',    url:'stationaryObstacles/stationary_obstacle_7.png'},
         {id:'stationary_obstacle_8',    url:'stationaryObstacles/stationary_obstacle_8.png'},
         {id:'stationary_obstacle_9',    url:'stationaryObstacles/stationary_obstacle_9.png'},
-        {id:'stationary_obstacle_10',    url:'stationaryObstacles/stationary_obstacle_10.png'},
+
+        {id:'blue',    url:'screens/blue.png'},
+        {id:'green',    url:'screens/green.png'},
+        {id:'pink',    url:'screens/pink.png'},
+        {id:'white',    url:'screens/white.png'},
+        {id:'yellow',    url:'screens/yellow.png'},
+        {id:'red',    url:'screens/red.png'},
+        {id:'grey',    url:'screens/grey.png'},
+        {id:'orange',    url:'screens/orange.png'},
+        {id:'purple',    url:'screens/purple.png'},
+
 
 
         //Moving Obstacles
@@ -34,8 +44,7 @@ Runner = function()
         // Backgrounds
         {id:'startscreen_background',   url:'screens/startscreen_background.png'},
         {id:'endscreen_background',   	url:'screens/endscreen_background.png'},
-        {id:'gamescreen_background',   	url:'screens/gamescreen_background.jpg'},
-        {id:'gamescreen_ground',   		url:'screens/gamescreen_ground.png'},
+        {id:'gamescreen_ground',   		url:'screens/blue.png'},
         {id:'gamescreen_middleground',  url:'screens/gamescreen_middleground.png'},
            
         // Buttons
