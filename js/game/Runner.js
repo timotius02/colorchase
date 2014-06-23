@@ -33,8 +33,6 @@ Runner = function()
         {id:'moving_obstacle_B', 		url:'movingObstacles/moving_obstacle_B.png'},
         {id:'moving_obstacle_C',        url:'movingObstacles/rocket.png'},
         
-        //Coins
-        {id:'coin',   					url:'coin.png'},
         
         
         //Player pieces
@@ -42,17 +40,17 @@ Runner = function()
         {id:'player_flying', 			url:'player/player_flying.png'},
 
         // Backgrounds
-        {id:'startscreen_background',   url:'screens/startscreen_background.png'},
-        {id:'endscreen_background',   	url:'screens/endscreen_background.png'},
+        {id:'startscreen_background',   url:'screens/startscreen.jpg'},
+        {id:'endscreen_background',   	url:'screens/endscreen.jpg'},
         {id:'gamescreen_ground',   		url:'screens/blue.png'},
-        {id:'gamescreen_middleground',  url:'screens/gamescreen_middleground.png'},
+        {id:'gamescreen_middleground',  url:'screens/gamescreen.jpg'},
            
         // Buttons
         {id:'play_button',   			url:'buttons/play_button.png'},
         {id:'playagain_button',   		url:'buttons/playagain_button.png'},
         
-        //UI
-        {id:'distance_ui',   					url:'distance_ui.png'},  
+        // //UI
+        // {id:'distance_ui',   					url:'distance_ui.png'},  
         
         //Sounds
         {id:'background_music',			url:'sounds/background_music.mp3',		assetType:"audio"},

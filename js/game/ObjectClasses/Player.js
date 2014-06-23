@@ -2,7 +2,7 @@ Player = function() {
 	Player.superclass.constructor.call(this);
 	
 	// Player settings
-	this.mGroundHeight = 100;
+	this.mGroundHeight = 55;
 	this.mHorizontalSpeed = 0;
 	this.mVerticalSpeed = 0;
 	this.mFallSpeed = 0;

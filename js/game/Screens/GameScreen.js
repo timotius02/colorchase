@@ -80,8 +80,8 @@ GameScreen.prototype = {
 		TGE.Game.GetInstance().mCameraLocation.x = this.mPlayer.worldX + 300;
 
 		// Update the distance and coin displays
-		this.distanceDisplay.text = Math.floor(this.mDistance).toString();
-		//this.coinDisplay.text = Math.floor(this.mCoins).toString();
+		//this.distanceDisplay.text = Math.floor(this.mDistance).toString();
+		this.coinDisplay.text = "Score: " + Math.floor(this.mCoins).toString();
 		//this.coinDisplay.text = this.currKey;	
 
 		// Read & make level
@@ -166,7 +166,6 @@ GameScreen.prototype = {
 				}
 
 				else if (nextEvent.event == "random2") {
-					console.log(this.mPlayer.mHorizontalSpeed);
 					this.spawnColors();
 				}
 				
@@ -175,8 +174,8 @@ GameScreen.prototype = {
 					//this.EndGame();
 
 					this.mEventIndex = 3;
-					//this.mPlayer.SetSpeed(this.mPlayer.mHorizontalSpeed);
-					this.mPlayer.mHorizontalSpeed = this.mPlayer.mHorizontalSpeed * 1.1;
+					//acceleration
+					this.mPlayer.mHorizontalSpeed = this.mPlayer.mHorizontalSpeed * 1.01;
 				}
 
 				this.mEventIndex++;
@@ -239,8 +238,6 @@ GameScreen.prototype = {
 		var num = Math.floor(Math.random()*numCoins);
 		this.currKey = this.colors[num];
 
-		//this.artLayer.getChildAt(1).image = this.colors[num] + ".png";
-
 		var notCorrect1 = notCorrect2 = 0;
 
 		do {
@@ -248,9 +245,7 @@ GameScreen.prototype = {
 			notCorrect2 = Math.floor(Math.random() * numCoins);
 		} while (num === notCorrect1 || num === notCorrect2 || notCorrect1 === notCorrect2);
 
-		// console.log(num);
-		// console.log(notCorrect1);
-		// console.log(notCorrect2);
+
 
 		var heights = [50, 225, 400];
 
@@ -265,7 +260,7 @@ GameScreen.prototype = {
 		}
 
 		heights = shuffle(heights);
-		//console.log(heights[0]+"," + heights[1]+","+heights[2]);
+
 
 		this.obstacleLayer.addChild(new SafeObstacle().setup({
 			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + -600,
@@ -408,13 +403,13 @@ GameScreen.prototype = {
 		
 		
 		//Text that displays distance traveled
-		this.distanceDisplay = this.UILayer.addChild(new TGE.Text().setup({
-			x : 72,
-			y : 22,
-			text : "0",
-			font : "Tahoma 20px",
-			color : "white"
-		}));
+		// this.distanceDisplay = this.UILayer.addChild(new TGE.Text().setup({
+		// 	x : 72,
+		// 	y : 22,
+		// 	text : "0",
+		// 	font : "Tahoma 20px",
+		// 	color : "white"
+		// }));
 		
 		//Feet icon that sits in front of the distance traveled number
 		// this.addChild(new TGE.Sprite().setup({
@@ -425,14 +420,14 @@ GameScreen.prototype = {
 		// 	scaleY : 0.5
 		// }));
 
-		// //Text that displays coins collected
-		// this.coinDisplay = this.UILayer.addChild(new TGE.Text().setup({
-		// 	x : 72,
-		// 	y : 65,
-		// 	text : "None",
-		// 	font : "Tahoma 20px",
-		// 	color : "white"
-		// }));
+		//Text that displays coins collected
+		this.coinDisplay = this.UILayer.addChild(new TGE.Text().setup({
+			x : 90,
+			y : 30,
+			text : "Score: 0",
+			font : "Tahoma 20px",
+			color : "white"
+		}));
 		
 		// //Coin icon that sits in front of the coins collected number
 		// this.addChild(new TGE.Sprite().setup({

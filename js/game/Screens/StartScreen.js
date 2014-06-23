@@ -20,16 +20,19 @@ StartScreen = function() {
         looping : true,
         visible : true,
         x : this.percentageOfWidth(0.5),
-        y : this.percentageOfHeight(0.73)
+        y : this.percentageOfHeight(0.78)
     }));
     //play button
     this.addChild(new TGE.Button().setup({
         x : this.percentageOfWidth(0.5),
-        y : this.percentageOfHeight(0.73),
+        y : this.percentageOfHeight(0.78),
+        width: this.buttonSprite.width,
+        height: this.buttonSprite.height,
         alpha: 0,
-        pressFunction : this.gotoGameScreen.bind(this),
+        pressFunction : this.gotoGameScreen.bind(this)
 
     }));
+
 
     this.buttonSprite.gotoAndPlay(0);
 
