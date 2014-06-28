@@ -4,6 +4,7 @@ GameScreen = function(width, height) {
 	//Stats
 	this.mDistance = 0;
 	this.mCoins = 0;
+	this.name = "game";
 	
 	//Level stuff
 	this.mEventTimer = 0;
@@ -268,6 +269,7 @@ GameScreen.prototype = {
 
 		this.obstacleLayer.addChild(new SafeObstacle().setup({
 			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + genRandInt(-250, 250),
+			name: "right",
 			type : "2",
 			worldY: heights[0],
 			image :"stationary_obstacle_"+ (++num),
@@ -275,6 +277,7 @@ GameScreen.prototype = {
 		}));
 		this.obstacleLayer.addChild(new StationaryObstacle().setup({
 			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + genRandInt(-250, 250),
+			name: "wrong1",
 			type : "2",
 			worldY: heights[1],
 			image :"stationary_obstacle_" + (++notCorrect1),
@@ -283,6 +286,7 @@ GameScreen.prototype = {
 
 		this.obstacleLayer.addChild(new StationaryObstacle().setup({
 			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + genRandInt(-250, 250),
+			name: "wrong2",
 			type : "2",
 			worldY: heights[2],
 			image :"stationary_obstacle_" + (++notCorrect2),
@@ -444,6 +448,10 @@ GameScreen.prototype = {
 			loop : '0'
 		});
 
+		// this.obstacleLayer.getChildByName("wrong1");
+		// this.obstacleLayer.getChildByName("wrong2");
+
+		this.obstacleLayer.removeChildren();
 		//Increase coins
 		this.mCoins += 1;
 	},

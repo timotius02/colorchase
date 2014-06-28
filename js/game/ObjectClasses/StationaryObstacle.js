@@ -12,6 +12,7 @@ StationaryObstacle.prototype = {
 
 	setup : function(params) 
 	{
+		this.name = params.name;
 		this.DetermineObstacleType(params, params.type);
 		this.mGame = params.gameScreen;
 		StationaryObstacle.superclass.setup.call(this, params);

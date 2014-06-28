@@ -3,6 +3,7 @@ Coin = function()
 {
 	//Coin settings
 	this.mPickedUp = false;
+	this.name = "coin";
 
 	//Boring stuff
     Coin.superclass.constructor.call(this);
