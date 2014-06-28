@@ -446,7 +446,6 @@ GameScreen.prototype = {
 	        x : this.percentageOfWidth(0.1),
 	        y : this.percentageOfHeight(0.95),
 	        image: "pause_button",
-	        alpha: 10,
 	        pressFunction : this.pause.bind(this)
 
 	    }));
@@ -539,7 +538,7 @@ GameScreen.prototype = {
 		if(this.mPlayer.mHorizontalSpeed != 0){
 			this.mousedown = false;
 
-			TGE.Game.GetInstance().audioManager.ToggleMute();
+			TGE.Game.GetInstance().audioManager.Mute();
 
 
 	 		this.pauseSpeed = this.mPlayer.mHorizontalSpeed;
@@ -556,7 +555,7 @@ GameScreen.prototype = {
 
 		}
 		else{
-			TGE.Game.GetInstance().audioManager.ToggleMute();
+			TGE.Game.GetInstance().audioManager.Unmute();
 			this.mPlayer.mGroundHeight = 65;
 
 
