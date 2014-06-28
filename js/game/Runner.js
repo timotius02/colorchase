@@ -21,7 +21,6 @@ Runner = function()
         {id:'white',    url:'screens/white.png'},
         {id:'yellow',    url:'screens/yellow.png'},
         {id:'red',    url:'screens/red.png'},
-        {id:'grey',    url:'screens/grey.png'},
         {id:'orange',    url:'screens/orange.png'},
         {id:'purple',    url:'screens/purple.png'},
 
@@ -43,10 +42,16 @@ Runner = function()
         {id:'endscreen_background',   	url:'screens/endscreen.jpg'},
         {id:'gamescreen_ground',   		url:'screens/blue.png'},
         {id:'gamescreen_middleground',  url:'screens/gamescreen.jpg'},
+        {id:'introscreen_1',            url:'screens/introscreen1.jpg'},
+        {id:'introscreen_2',            url:'screens/introscreen2.jpg'},
            
         // Buttons
         {id:'play_button',   			url:'buttons/play_button.png'},
         {id:'playagain_button',   		url:'buttons/playagain_button.png'},
+        {id:'pause_button',             url:'buttons/pause.png'},
+        {id:'question_button',          url:'buttons/questionmark.png'},
+        {id:'mute_button',              url:'buttons/sound.png'},
+        {id:'next_button',              url:'buttons/next.png'},
         
         // //UI
         // {id:'distance_ui',   					url:'distance_ui.png'},  
@@ -55,7 +60,6 @@ Runner = function()
         {id:'background_music',			url:'sounds/background_music.mp3',		assetType:"audio"},
         {id:'hitObstacle_sound',		url:'sounds/hitObstacle_sound.mp3',		assetType:"audio"},
         {id:'hitCoin_sound',			url:'sounds/hitCoin_sound.mp3',			assetType:"audio"}, 
-        {id:'pacman_music',            url:'sounds/pacman_music.mp3',         assetType:"audio"}
       ]);
 
     TGE.FirstGameWindow = StartScreen;

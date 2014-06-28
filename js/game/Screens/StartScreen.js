@@ -11,6 +11,8 @@ StartScreen = function() {
     
     var self = this;
 
+    this.music = 1;
+
     this.buttonSprite = this.addChild(new TGE.SpriteSheetAnimation().setup({
         image : "play_button",
         rows : 1,
@@ -23,10 +25,44 @@ StartScreen = function() {
         x : this.percentageOfWidth(0.49),
         y : this.percentageOfHeight(0.8)
     }));
+
+    this.buttonSprite2 = this.addChild(new TGE.SpriteSheetAnimation().setup({
+        image : "mute_button",
+        rows : 1,
+        columns : 2,
+        totalFrames : 2,
+        fps : 0,
+        looping : false,
+        visible : true,
+        x : this.percentageOfWidth(0.03),
+        y : this.percentageOfHeight(0.95)
+    }));
+        //question button
+    this.addChild(new TGE.Button().setup({
+        x : this.percentageOfWidth(0.97),
+        y : this.percentageOfHeight(0.95),
+        image: "question_button",
+        pressFunction : this.question.bind(this)
+    }));
+
+
+
+    //mute button
+    this.addChild(new TGE.Button().setup({
+        x : this.percentageOfWidth(0.03),
+        y : this.percentageOfHeight(0.95),
+        width: this.buttonSprite2.width,
+        height: this.buttonSprite2.height,
+        alpha: 0,
+        pressFunction : this.muteSound.bind(this)
+
+    }));
+
     //play button
     this.addChild(new TGE.Button().setup({
         x : this.buttonSprite.x,
         y : this.buttonSprite.y,
+        scale: 0.7,
         width: this.buttonSprite.width,
         height: this.buttonSprite.height,
         alpha: 0,
@@ -52,7 +88,6 @@ StartScreen.prototype = {
 
         TGE.Game.GetInstance().audioManager.StopAll();
 
-
         //go to game
 		this.transitionToWindow({
 			windowClass : GameScreen,
@@ -60,7 +95,55 @@ StartScreen.prototype = {
 		});
 
 
-	}
+	},
+
+    muteSound : function(){
+        if(this.music){
+            this.buttonSprite2.gotoAndStop(1);
+            TGE.Game.GetInstance().audioManager.Mute();
+            this.music = 0;
+        }
+        else{
+            this.buttonSprite2.gotoAndStop(0);  
+            TGE.Game.GetInstance().audioManager.Unmute();
+            this.music = 1;
+        }
+        
+    },
+    question : function(){
+        this.addChild(new TGE.Sprite().setup({
+            x : this.percentageOfWidth(0.5),
+            y : this.percentageOfHeight(0.5),
+            instanceName: "introscreen_1",
+            image: "introscreen_1"
+        }));
+        this.addChild(new TGE.Button().setup({
+            x : this.percentageOfWidth(0.97),
+            y : this.percentageOfHeight(0.95),
+            instanceName: "next_button",
+            image: "next_button",
+        pressFunction : this.question2.bind(this)
+        }));
+    },
+
+    question2 : function(){
+        this.addChild(new TGE.Sprite().setup({
+            x : this.percentageOfWidth(0.5),
+            y : this.percentageOfHeight(0.5),
+            instanceName: "introscreen_2",
+            image: "introscreen_2"
+        }));
+        this.addChild(new TGE.Button().setup({
+            x : this.percentageOfWidth(0.97),
+            y : this.percentageOfHeight(0.95),
+            instanceName: "next_button2",
+            image: "next_button",
+        pressFunction : this.clearInstruct.bind(this)
+        }));
+    },
+    clearInstruct: function(){
+        this.removeChildByName(["introscreen_1", "introscreen_2", "next_button", "next_button2"]);
+    }
 	
 }
 

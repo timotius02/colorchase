@@ -32,9 +32,12 @@ GameScreen = function(width, height) {
 
 	//CUSTOM
 	this.colors = ["blue", "green", "pink", "yellow", "red", "white", "orange", "purple"];
-																		
-	this.currKey = "None";
+	
+	this.music = 1;
 
+	this.currKey = "None";
+	this.pauseSpeed = 0;
+	this.pauseGravitySpeed = 0;
 };
 
 GameScreen.prototype = {
@@ -174,7 +177,7 @@ GameScreen.prototype = {
 
 					this.mEventIndex = 3;
 					//acceleration
-					this.mPlayer.mHorizontalSpeed = this.mPlayer.mHorizontalSpeed * 1.005;
+					this.mPlayer.mHorizontalSpeed = this.mPlayer.mHorizontalSpeed * 1.01;
 				}
 
 				this.mEventIndex++;
@@ -438,6 +441,41 @@ GameScreen.prototype = {
 		// 	scaleY : 0.75
 		// }));
 
+			    		    //pause button
+	    this.addChild(new TGE.Button().setup({
+	        x : this.percentageOfWidth(0.1),
+	        y : this.percentageOfHeight(0.95),
+	        image: "pause_button",
+	        alpha: 10,
+	        pressFunction : this.pause.bind(this)
+
+	    }));
+
+		this.buttonSprite2 = this.addChild(new TGE.SpriteSheetAnimation().setup({
+			image : "mute_button",
+			rows : 1,
+			columns : 2,
+			totalFrames : 2,
+			fps : 0,
+			looping : false,
+			visible : true,
+			x : this.percentageOfWidth(0.03),
+			y : this.percentageOfHeight(0.95)
+		}));
+
+
+	    //mute button
+	    this.addChild(new TGE.Button().setup({
+	        x : this.percentageOfWidth(0.03),
+	        y : this.percentageOfHeight(0.95),
+	        width: this.buttonSprite2.width,
+	        height: this.buttonSprite2.height,
+	        alpha: 0,
+	        pressFunction : this.muteSound.bind(this)
+
+	    }));
+
+
 	},
 
 	PlayerHitCoin : function(params) 
@@ -461,16 +499,16 @@ GameScreen.prototype = {
 		TGE.Game.GetInstance().audioManager.StopAll();
 
 		//Play sound
-		TGE.Game.GetInstance().audioManager.Play({
-			id : 'hitObstacle_sound',
-			loop : '0'
-		});
+		// TGE.Game.GetInstance().audioManager.Play({
+		// 	id : 'hitObstacle_sound',
+		// 	loop : '0'
+		// });
 
 		//End game
 
-		setTimeout(function(){
+		// setTimeout(function(){
 			this.EndGame();
-		}.bind(this), 2000);
+		// }.bind(this), 2000);
 	},
 	
 	GetScore : function() {
@@ -484,6 +522,54 @@ GameScreen.prototype = {
 	GetPlayer : function() { return this.mPlayer; },
 	MouseDown : function() { this.mousedown = true; },
 	MouseUp : function() { this.mousedown = false; },
+    muteSound : function(){
+        if(this.music){
+            this.buttonSprite2.gotoAndStop(1);
+            TGE.Game.GetInstance().audioManager.Mute();
+            this.music = 0;
+        }
+        else{
+            this.buttonSprite2.gotoAndStop(0);  
+            TGE.Game.GetInstance().audioManager.Unmute();
+            this.music = 1;
+        }
+        
+    },
+	pause: function(){
+		if(this.mPlayer.mHorizontalSpeed != 0){
+			this.mousedown = false;
 
+			TGE.Game.GetInstance().audioManager.ToggleMute();
+
+
+	 		this.pauseSpeed = this.mPlayer.mHorizontalSpeed;
+	 		this.pauseGravitySpeed = this.mPlayer.mVerticalSpeed;
+
+	 		this.mPlayer.mHorizontalSpeed = 0;
+	 		this.mPlayer.mVerticalSpeed = 0;
+
+	 		this.mPlayer.mGroundHeight = this.mPlayer.worldY;
+
+
+	 		this.clearEventListeners();
+
+
+		}
+		else{
+			TGE.Game.GetInstance().audioManager.ToggleMute();
+			this.mPlayer.mGroundHeight = 65;
+
+
+			this.mPlayer.mVerticalSpeed = this.pauseGravitySpeed;
+
+				// Event listeners
+			this.addEventListener("update", this.Update.bind(this));
+			this.addEventListener("mousedown", this.MouseDown.bind(this));
+			this.addEventListener("mouseup", this.MouseUp.bind(this));
+
+			this.mPlayer.mHorizontalSpeed = this.pauseSpeed;
+
+		}
+	}
 }
 extend(GameScreen, TGE.Window);
