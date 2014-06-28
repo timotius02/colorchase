@@ -20,7 +20,7 @@ StartScreen = function() {
         scale: .7,
         looping : true,
         visible : true,
-        x : this.percentageOfWidth(0.5),
+        x : this.percentageOfWidth(0.49),
         y : this.percentageOfHeight(0.8)
     }));
     //play button
@@ -40,7 +40,7 @@ StartScreen = function() {
 
     //Play sound
     TGE.Game.GetInstance().audioManager.Play({
-        id : 'pacman_music',
+        id : 'background_music',
         loop : '1'
     });
 }
