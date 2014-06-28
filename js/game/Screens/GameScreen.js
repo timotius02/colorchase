@@ -30,10 +30,8 @@ GameScreen = function(width, height) {
 	this.addEventListener("mouseup", this.MouseUp.bind(this));
 
 	//CUSTOM
-	this.colors = ["blue", "green", "pink", "white", "yellow", "red", "grey", "orange", "purple"];
-																		//teal  //navy
-
-	//this.color = ["blue", ""];
+	this.colors = ["blue", "green", "pink", "yellow", "red", "white", "orange", "purple"];
+																		
 	this.currKey = "None";
 
 };
@@ -231,9 +229,7 @@ GameScreen.prototype = {
 	},
 
 	spawnColors: function(){
-		var numCoins = 9;
-
-
+		var numCoins = 8;
 
 		var num = Math.floor(Math.random()*numCoins);
 		this.currKey = this.colors[num];

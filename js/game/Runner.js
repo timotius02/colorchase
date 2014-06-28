@@ -14,7 +14,6 @@ Runner = function()
         {id:'stationary_obstacle_6',    url:'stationaryObstacles/stationary_obstacle_6.png'},
         {id:'stationary_obstacle_7',    url:'stationaryObstacles/stationary_obstacle_7.png'},
         {id:'stationary_obstacle_8',    url:'stationaryObstacles/stationary_obstacle_8.png'},
-        {id:'stationary_obstacle_9',    url:'stationaryObstacles/stationary_obstacle_9.png'},
 
         {id:'blue',    url:'screens/blue.png'},
         {id:'green',    url:'screens/green.png'},
