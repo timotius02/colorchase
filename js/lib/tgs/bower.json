@@ -1,0 +1,11 @@
+{
+  "name": "tgs",
+  "version": "0.3.6",
+  "authors": [
+    "Tresensa Inc."
+  ],
+  "description": "Tresensa Game Services",
+  "main": "tgs-0.3.6.min.js",
+  "homepage": "http://tresensa.com",
+  "ignore": ["A*/**", "Q0001/**"]
+}

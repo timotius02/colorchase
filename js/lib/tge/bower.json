@@ -1,0 +1,11 @@
+{
+  "name": "tge",
+  "version": "1.0.19",
+  "authors": [
+    "Tresensa Inc."
+  ],
+  "description": "Tresensa Game Engine",
+  "main": "tge-1.0.19.min.js",
+  "homepage": "http://tresensa.com",
+  "ignore": []
+}

@@ -37,6 +37,7 @@ var GameConfig = {
 
     TGS: {
         ENABLED: true,
+        FONT_LOADER:  true,
         VERSION: '0.3'
     },
 
