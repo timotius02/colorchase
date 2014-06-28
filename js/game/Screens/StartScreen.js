@@ -17,15 +17,16 @@ StartScreen = function() {
         columns : 2,
         totalFrames : 2,
         fps : 10,
+        scale: .7,
         looping : true,
         visible : true,
         x : this.percentageOfWidth(0.5),
-        y : this.percentageOfHeight(0.78)
+        y : this.percentageOfHeight(0.8)
     }));
     //play button
     this.addChild(new TGE.Button().setup({
-        x : this.percentageOfWidth(0.5),
-        y : this.percentageOfHeight(0.78),
+        x : this.buttonSprite.x,
+        y : this.buttonSprite.y,
         width: this.buttonSprite.width,
         height: this.buttonSprite.height,
         alpha: 0,
@@ -35,6 +36,7 @@ StartScreen = function() {
 
 
     this.buttonSprite.gotoAndPlay(0);
+
 
     //Play sound
     TGE.Game.GetInstance().audioManager.Play({
