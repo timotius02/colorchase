@@ -5,7 +5,7 @@ EndScreen = function() {
     this.addChild(new TGE.Sprite().setup({
     	x : this.percentageOfWidth(0.5),
         y : this.percentageOfHeight(0.5),
-    	image: "endscreen_background",
+        image: "endscreen_background",
     }));
     
  //    // Display distance traveled
@@ -14,17 +14,17 @@ EndScreen = function() {
  //        y : this.percentageOfHeight(0.25),
  //        font : "Tahoma 20px",
  //    }));
-    
+
  //    // Display coins earned
 	// this.addChild(this.coinDisplay = new TGE.Text().setup({
  //        x : this.percentageOfWidth(0.9),
  //        y : this.percentageOfHeight(0.32),
  //        font : "Tahoma 20px",
  //    }));
-    
+
     // Display final score
     this.addChild(this.coinDisplay = new TGE.Text().setup({
-        x : this.percentageOfWidth(0.30),
+        x : this.percentageOfWidth(0.28),
         y : this.percentageOfHeight(0.80),
         font : "60px Tahoma",
         color: "white"
@@ -32,12 +32,19 @@ EndScreen = function() {
     
     // Try Again button
     this.addChild(new TGE.Button().setup({
-        x : this.percentageOfWidth(0.5),
-        y : this.percentageOfHeight(0.78),
+        x : this.percentageOfWidth(0.46),
+        y : this.percentageOfHeight(0.8),
         scale: .7,
         image: "playagain_button",
         pressFunction : this.PlayAgain.bind(this),
     }));
+
+    // TGS Game Over Widget
+    this.widget = TGS.Widget.CreateWidget({
+        x: this.percentageOfWidth(0.6),
+        y: this.percentageOfHeight(0.15),
+        shareMessage: "I just scored " + this.coinDisplay + " on ColorChase!"
+    });
     
     return this;
 }
@@ -53,16 +60,20 @@ EndScreen.prototype = {
 		//this.coinDisplay.text = params.coins.toString();
 		//this.distanceDisplay.text = params.distance.toString();
 		this.coinDisplay.text = params.coins.toString();
-	    
-	    return this;
-	},
 
-	PlayAgain : function() {
-	    this.transitionToWindow({
-	        windowClass : GameScreen,
-	        fadeTime : 0.75
-	    });
-	}
+       return this;
+   },
+
+   PlayAgain : function() {
+    if (this.widget != null && typeof this.widget !== "undefined"){
+        this.widget.close();
+    }
+
+    this.transitionToWindow({
+       windowClass : GameScreen,
+       fadeTime : 0.75
+   });
+}
 }
 
 

@@ -36,7 +36,7 @@ var GameConfig = {
 	},
 
     TGS: {
-        ENABLED: false,
+        ENABLED: true,
         VERSION: '0.3'
     },
 
