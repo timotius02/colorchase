@@ -44,6 +44,8 @@ Runner = function()
         {id:'gamescreen_middleground',  url:'screens/gamescreen.jpg'},
         {id:'introscreen_1',            url:'screens/introscreen1.jpg'},
         {id:'introscreen_2',            url:'screens/introscreen2.jpg'},
+        {id:'credits_screen',           url:'screens/credits.jpg'},       
+        {id:'pause_screen',             url:'screens/pause.png'},       
            
         // Buttons
         {id:'play_button',   			url:'buttons/play_button.png'},
@@ -52,6 +54,7 @@ Runner = function()
         {id:'question_button',          url:'buttons/questionmark.png'},
         {id:'mute_button',              url:'buttons/sound.png'},
         {id:'next_button',              url:'buttons/next.png'},
+        {id:'credits_button',           url:'buttons/credits_button.png'},
         
         // //UI
         // {id:'distance_ui',   					url:'distance_ui.png'},  

@@ -34,10 +34,19 @@ EndScreen = function() {
     this.addChild(new TGE.Button().setup({
         x : this.percentageOfWidth(0.2),
         y : this.percentageOfHeight(0.8),
-        scale: .7,
+        scale: .6,
         image: "playagain_button",
         pressFunction : this.PlayAgain.bind(this),
     }));
+    //credits
+    this.addChild(new TGE.Button().setup({
+        x : this.percentageOfWidth(0.45),
+        y : this.percentageOfHeight(0.8),
+        scale: .6,
+        image: "credits_button",
+        pressFunction : this.credits.bind(this),
+    }));
+
 
     // TGS Game Over Widget
     this.widget = TGS.Widget.CreateWidget({
@@ -64,16 +73,47 @@ EndScreen.prototype = {
        return this;
    },
 
-   PlayAgain : function() {
-    if (this.widget != null && typeof this.widget !== "undefined"){
-        this.widget.close();
-    }
+    PlayAgain : function() {
+        if (this.widget != null && typeof this.widget !== "undefined"){
+            this.widget.close();
+        }
 
-    this.transitionToWindow({
-       windowClass : GameScreen,
-       fadeTime : 0.75
-   });
-}
+        this.transitionToWindow({
+           windowClass : StartScreen,
+           fadeTime : 0.75
+       });
+    },
+
+    credits: function(){
+        if (this.widget != null && typeof this.widget !== "undefined"){
+            this.widget.close();
+        }
+        this.addChild(new TGE.Sprite().setup({
+            x : this.percentageOfWidth(0.5),
+            y : this.percentageOfHeight(0.5),
+            instanceName: "credits_screen",
+            image: "credits_screen"
+        }));
+        this.addChild(new TGE.Button().setup({
+            x : this.percentageOfWidth(0.97),
+            y : this.percentageOfHeight(0.95),
+            instanceName: "next_button",
+            image: "next_button",
+        pressFunction : this.back.bind(this)
+        }));
+
+    },
+    back: function(){
+
+        this.removeChildByName(["credits_screen", "next_button"]);
+
+        this.widget = TGS.Widget.CreateWidget({
+            x: this.percentageOfWidth(0.6),
+            y: this.percentageOfHeight(0.15),
+            shareMessage: "I just scored " + this.coinDisplay + " on ColorChase!"
+        });
+
+    }
 }
 
 

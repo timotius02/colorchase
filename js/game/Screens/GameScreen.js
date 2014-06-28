@@ -552,9 +552,18 @@ GameScreen.prototype = {
 
 	 		this.clearEventListeners();
 
-
+	 		this.mPlayer.animArray["run"].stop();
+	 		this.addChild(new TGE.Sprite().setup({
+            	x : this.percentageOfWidth(0.5),
+            	y : this.percentageOfHeight(0.5),
+            	instanceName: "pause_screen",
+            	image: "pause_screen"
+        	}));
 		}
 		else{
+			this.removeChildByName("pause_screen");
+			this.mPlayer.animArray["run"].play();
+
 			TGE.Game.GetInstance().audioManager.Unmute();
 			this.mPlayer.mGroundHeight = 65;
 

@@ -23,7 +23,7 @@ StartScreen = function() {
         looping : true,
         visible : true,
         x : this.percentageOfWidth(0.49),
-        y : this.percentageOfHeight(0.8)
+        y : this.percentageOfHeight(0.8),    
     }));
 
     this.buttonSprite2 = this.addChild(new TGE.SpriteSheetAnimation().setup({
@@ -55,7 +55,6 @@ StartScreen = function() {
         height: this.buttonSprite2.height,
         alpha: 0,
         pressFunction : this.muteSound.bind(this)
-
     }));
 
     //play button
@@ -66,7 +65,8 @@ StartScreen = function() {
         width: this.buttonSprite.width,
         height: this.buttonSprite.height,
         alpha: 0,
-        pressFunction : this.gotoGameScreen.bind(this)
+        pressFunction : this.gotoGameScreen.bind(this),
+        instanceName: "play_button",
 
     }));
 
@@ -98,6 +98,7 @@ StartScreen.prototype = {
 	},
 
     muteSound : function(){
+
         if(this.music){
             this.buttonSprite2.gotoAndStop(1);
             TGE.Game.GetInstance().audioManager.Mute();
@@ -111,6 +112,7 @@ StartScreen.prototype = {
         
     },
     question : function(){
+        this.getChildByName("play_button").enabled = false;
         this.addChild(new TGE.Sprite().setup({
             x : this.percentageOfWidth(0.5),
             y : this.percentageOfHeight(0.5),
@@ -143,6 +145,7 @@ StartScreen.prototype = {
     },
     clearInstruct: function(){
         this.removeChildByName(["introscreen_1", "introscreen_2", "next_button", "next_button2"]);
+        this.getChildByName("play_button").enabled = true;
     }
 	
 }
