@@ -32,7 +32,7 @@ EndScreen = function() {
     
     // Try Again button
     this.addChild(new TGE.Button().setup({
-        x : this.percentageOfWidth(0.46),
+        x : this.percentageOfWidth(0.2),
         y : this.percentageOfHeight(0.8),
         scale: .7,
         image: "playagain_button",
