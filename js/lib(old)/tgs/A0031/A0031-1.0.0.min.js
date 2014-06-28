@@ -1,2 +1,0 @@
-/* Copyright (c) 2013 TreSensa, Inc. All Rights Reserved. */
-TGS.Adapters.A0031=function(){TGS.Adapters.A0031.superclass.constructor.call(this),TGS.DataStore._sSaveToLocalStorage=!0,TGS.DataStore._sSaveToTGSServer=!1},TGS.Adapters.A0031.prototype={implementsLeaderboard:function(){return!0},submitScore:function(a){window.mobileAPI.setScore(a.score),window.mobileAPI.events.gameover()},showLeaderboard:function(){},submitScoreAndShow:function(a){window.mobileAPI.setScore(a.score)}},extend(TGS.Adapters.A0031,TGS.PartnerBridge);

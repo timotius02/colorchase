@@ -1,2 +1,0 @@
-/* Copyright (c) 2013 TreSensa, Inc. All Rights Reserved. */
-!function(){var a=function(){};TGS.Adapters.A0009=function(){TGS.Adapters.A0009.superclass.constructor.call(this)},TGS.Adapters.A0009.prototype={advertising_injectAd:a,advertising_closeAd:a,advertising_injectInterstitial:a},extend(TGS.Adapters.A0009,TGS.PartnerBridge)}();
