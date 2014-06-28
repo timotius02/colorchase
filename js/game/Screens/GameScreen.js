@@ -173,7 +173,7 @@ GameScreen.prototype = {
 
 					this.mEventIndex = 3;
 					//acceleration
-					this.mPlayer.mHorizontalSpeed = this.mPlayer.mHorizontalSpeed * 1.01;
+					this.mPlayer.mHorizontalSpeed = this.mPlayer.mHorizontalSpeed * 1.005;
 				}
 
 				this.mEventIndex++;
@@ -261,7 +261,7 @@ GameScreen.prototype = {
 		this.obstacleLayer.addChild(new SafeObstacle().setup({
 			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + -600,
 			type : "2",
-			worldY: -50,
+			worldY: -60,
 			image :this.colors[num],
 			gameScreen : this
 		}));

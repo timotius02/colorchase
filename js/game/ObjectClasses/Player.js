@@ -40,9 +40,9 @@ Player.prototype = {
 			columns : 6,
 			totalFrames : 6,
 			fps : 8,
+			scale: .7,
 			looping : true,
-			visible : false,
-			scale: .7
+			visible : false
 		}));
 		
 		// Flying animation
