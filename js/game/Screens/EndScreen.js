@@ -38,7 +38,7 @@ EndScreen = function() {
     this.widget = TGS.Widget.CreateWidget({
         x: this.percentageOfWidth(0.6),
         y: this.percentageOfHeight(0.15),
-        shareMessage: "I just scored " + this.coinDisplay + " on ColorChase!"
+        shareMessage: "I just scored " + this.coinDisplay.text + " on ColorChase!"
     });
     
     return this;
@@ -94,7 +94,7 @@ EndScreen.prototype = {
         this.widget = TGS.Widget.CreateWidget({
             x: this.percentageOfWidth(0.6),
             y: this.percentageOfHeight(0.15),
-            shareMessage: "I just scored " + this.coinDisplay + " on ColorChase!"
+            shareMessage: "I just scored " + this.coinDisplay.text + " on ColorChase!"
         });
 
     }

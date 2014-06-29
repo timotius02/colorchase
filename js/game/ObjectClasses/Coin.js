@@ -15,7 +15,6 @@ Coin = function()
 
 Coin.prototype = {
 
-
 	setup : function(params) 
 	{
 		params.image = "coin";

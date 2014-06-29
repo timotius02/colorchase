@@ -8,8 +8,12 @@ StartScreen = function() {
         y : this.percentageOfHeight(0.5),
         image: "startscreen_background",
     }));
-    
-    var self = this;
+
+        //Play sound
+    TGE.Game.GetInstance().audioManager.Play({
+        id : 'background_music',
+        loop : true
+    });
 
     this.music = 1;
 
@@ -75,12 +79,6 @@ StartScreen = function() {
 
     this.buttonSprite.gotoAndPlay(0);
 
-
-    //Play sound
-    TGE.Game.GetInstance().audioManager.Play({
-        id : 'background_music',
-        loop : true
-    });
 }
 
 
