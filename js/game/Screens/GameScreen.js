@@ -559,25 +559,38 @@ GameScreen.prototype = {
             	instanceName: "pause_screen",
             	image: "pause_screen"
         	}));
+
+        	this.addChild(new TGE.Button().setup({
+		        x : this.percentageOfWidth(0.5),
+		        y : this.percentageOfHeight(0.5),
+		        width: this.percentageOfWidth(1),
+		        height: this.percentageOfHeight(1),
+		        alpha: 0,
+		        pressFunction : this.unpause.bind(this),
+		        instanceName: "unpause_button",
+
+		    }));
 		}
-		else{
-			this.removeChildByName("pause_screen");
-			this.mPlayer.animArray["run"].play();
+	},
+	unpause: function(){
+		
+		this.removeChildByName(["pause_screen", "unpause_button"]);
+		this.mPlayer.animArray["run"].play();
 
-			TGE.Game.GetInstance().audioManager.Unmute();
-			this.mPlayer.mGroundHeight = 65;
+		TGE.Game.GetInstance().audioManager.Unmute();
+		this.mPlayer.mGroundHeight = 65;
 
 
-			this.mPlayer.mVerticalSpeed = this.pauseGravitySpeed;
+		this.mPlayer.mVerticalSpeed = this.pauseGravitySpeed;
 
-				// Event listeners
-			this.addEventListener("update", this.Update.bind(this));
-			this.addEventListener("mousedown", this.MouseDown.bind(this));
-			this.addEventListener("mouseup", this.MouseUp.bind(this));
+			// Event listeners
+		this.addEventListener("update", this.Update.bind(this));
+		this.addEventListener("mousedown", this.MouseDown.bind(this));
+		this.addEventListener("mouseup", this.MouseUp.bind(this));
 
-			this.mPlayer.mHorizontalSpeed = this.pauseSpeed;
+		this.mPlayer.mHorizontalSpeed = this.pauseSpeed;
 
-		}
+		
 	}
 }
 extend(GameScreen, TGE.Window);

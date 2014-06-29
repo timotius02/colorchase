@@ -145,7 +145,7 @@ Player.prototype = {
 	
 	SetBoostSpeed : function(boostSpeed) {
 		this.mBoostSpeed = boostSpeed * this.mGame.height;
-	},
+	}
 	
 	
 }
