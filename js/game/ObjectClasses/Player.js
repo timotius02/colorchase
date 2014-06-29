@@ -44,18 +44,6 @@ Player.prototype = {
 			looping : true,
 			visible : false
 		}));
-		
-		// Flying animation
-		this.animArray["fly"] = this.addChild(new TGE.SpriteSheetAnimation().setup({
-	        image : "player_flying",
-	        rows : 1,
-	        columns : 4,
-	        totalFrames : 4,
-	        fps : 24,
-	        looping : true,
-	        visible : false,
-	        scale: .7
-		}));
 
 		// Start player out running
 		this.PlayAnimation("run");

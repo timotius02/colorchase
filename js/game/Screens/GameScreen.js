@@ -443,6 +443,8 @@ GameScreen.prototype = {
 	{
 		TGE.Game.GetInstance().audioManager.StopAll();
 
+	 	this.mPlayer.animArray["run"].stop();
+
 		//Play sound
 		TGE.Game.GetInstance().audioManager.Play({
 			id : 'hitObstacle_sound',

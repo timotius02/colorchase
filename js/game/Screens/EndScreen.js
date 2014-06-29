@@ -51,7 +51,8 @@ EndScreen.prototype = {
         this.widget = TGS.Widget.CreateWidget({
             x: this.percentageOfWidth(0.6),
             y: this.percentageOfHeight(0.15),
-            shareMessage: "I just scored " + this.coinDisplay.text + " on ColorChase!"
+            shareMessage: "I just scored " + this.coinDisplay.text + " on ColorChase!",
+            shareImage: "startscreen_background"
         });
 
        return this;
@@ -94,7 +95,8 @@ EndScreen.prototype = {
         this.widget = TGS.Widget.CreateWidget({
             x: this.percentageOfWidth(0.6),
             y: this.percentageOfHeight(0.15),
-            shareMessage: "I just scored " + this.coinDisplay.text + " on ColorChase!"
+            shareMessage: "I just scored " + this.coinDisplay.text + " on ColorChase!",
+            shareImage: "startscreen_background"
         });
 
     }
