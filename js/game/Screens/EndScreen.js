@@ -32,17 +32,17 @@ EndScreen = function() {
     
     // Try Again button
     this.addChild(new TGE.Button().setup({
-        x : this.percentageOfWidth(0.2),
-        y : this.percentageOfHeight(0.8),
-        scale: .6,
+        x : this.percentageOfWidth(0.17),
+        y : this.percentageOfHeight(0.75),
+        scale: .5,
         image: "playagain_button",
         pressFunction : this.PlayAgain.bind(this),
     }));
     //credits
     this.addChild(new TGE.Button().setup({
-        x : this.percentageOfWidth(0.45),
-        y : this.percentageOfHeight(0.8),
-        scale: .6,
+        x : this.percentageOfWidth(0.4),
+        y : this.percentageOfHeight(0.75),
+        scale: .5,
         image: "credits_button",
         pressFunction : this.credits.bind(this),
     }));
