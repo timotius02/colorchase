@@ -49,7 +49,7 @@ EndScreen.prototype = {
         this.widget = TGS.Widget.CreateWidget({
             x: this.percentageOfWidth(0.6),
             y: this.percentageOfHeight(0.15),
-            shareImage: 'http://i1292.photobucket.com/albums/b561/Timotius_Sitorus/1024x680_zpsf3526ab4.png',
+            shareImage: 'http://i1292.photobucket.com/albums/b561/Timotius_Sitorus/940x408_zps1b18df93.png',
             shareMessage: "I just scored " + this.coinDisplay.text + " on ColorChase!"
         });
         console.log(this.widget.shareImage);
@@ -94,7 +94,7 @@ EndScreen.prototype = {
         this.widget = TGS.Widget.CreateWidget({
             x: this.percentageOfWidth(0.6),
             y: this.percentageOfHeight(0.15),
-            shareImage: 'http://i1292.photobucket.com/albums/b561/Timotius_Sitorus/1024x680_zpsf3526ab4.png',
+            shareImage: 'http://i1292.photobucket.com/albums/b561/Timotius_Sitorus/940x408_zps1b18df93.png',
             shareMessage: "I just scored " + this.coinDisplay.text + " on ColorChase!"
         });
 
