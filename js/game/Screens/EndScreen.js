@@ -33,13 +33,6 @@ EndScreen = function() {
         pressFunction : this.credits.bind(this),
     }));
 
-
-    // TGS Game Over Widget
-    this.widget = TGS.Widget.CreateWidget({
-        x: this.percentageOfWidth(0.6),
-        y: this.percentageOfHeight(0.15),
-        shareMessage: "I just scored " + this.coinDisplay.text + " on ColorChase!"
-    });
     
     return this;
 }
@@ -53,6 +46,13 @@ EndScreen.prototype = {
 
 		// Update final totals
 		this.coinDisplay.text = params.coins.toString();
+
+            // TGS Game Over Widget
+        this.widget = TGS.Widget.CreateWidget({
+            x: this.percentageOfWidth(0.6),
+            y: this.percentageOfHeight(0.15),
+            shareMessage: "I just scored " + this.coinDisplay.text + " on ColorChase!"
+        });
 
        return this;
    },
