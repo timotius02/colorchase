@@ -82,9 +82,7 @@ GameScreen.prototype = {
 		TGE.Game.GetInstance().mCameraLocation.x = this.mPlayer.worldX + 300;
 
 		// Update the distance and coin displays
-		//this.distanceDisplay.text = Math.floor(this.mDistance).toString();
 		this.coinDisplay.text = "Score: " + Math.floor(this.mCoins).toString();
-		//this.coinDisplay.text = this.currKey;	
 
 		// Read & make level
 		this.ReadNextEvent(event.elapsedTime);
@@ -369,17 +367,7 @@ GameScreen.prototype = {
 	},
 	
 	SetupParallaxingPlanes : function() {
-		// NOTES:  
-		//trackingSpeed:  increasing makes that plane scroll faster on the screen
-		//worldY:  is the height of that plane. 0 is the bottom of screen, 450 is the top of screen
-		
-		// //Background image
-		// this.artLayer.addChild(new TGE.ParallaxPane().setup({
-		// 	image : "gamescreen_background",
-		// 	worldY: 450,
-		// 	trackingSpeed : 0.1,
-		// }));
-		
+
 		//Middle ground plane
 		this.artLayer.addChild(new TGE.ParallaxPane().setup({
 			image : "gamescreen_middleground",
@@ -387,42 +375,9 @@ GameScreen.prototype = {
 			trackingSpeed : 0.25 
 		}));
 		
-		//Scrolling ground plane
-		// this.artLayer.addChild(new TGE.ParallaxPane().setup({
-		// 	name: "colorWord",
-		// 	image : "blue.png",
-		// 	worldY: 12,
-		// 	trackingSpeed : 0.3
-		// }));
-
-		//console.log(this.artLayer);
 	},
 	
 	SetupHud : function() {
-		// NOTES:
-		// x and y : the x coordinate of the text or image
-		// text : the actual text that will appear on screen
-		// scaleX and scaleY : we're shrinking the coin icon so it's smaller than actual coins
-		
-		
-		//Text that displays distance traveled
-		// this.distanceDisplay = this.UILayer.addChild(new TGE.Text().setup({
-		// 	x : 72,
-		// 	y : 22,
-		// 	text : "0",
-		// 	font : "Tahoma 20px",
-		// 	color : "white"
-		// }));
-		
-		//Feet icon that sits in front of the distance traveled number
-		// this.addChild(new TGE.Sprite().setup({
-		// 	x : 25,
-		// 	y : 22,
-		// 	image : "distance_ui",
-		// 	scaleX : 0.5,
-		// 	scaleY : 0.5
-		// }));
-
 		//Text that displays coins collected
 		this.coinDisplay = this.UILayer.addChild(new TGE.Text().setup({
 			x : 90,
@@ -432,19 +387,11 @@ GameScreen.prototype = {
 			color : "white"
 		}));
 		
-		// //Coin icon that sits in front of the coins collected number
-		// this.addChild(new TGE.Sprite().setup({
-		// 	x : 25,
-		// 	y : 65,
-		// 	image : "coin",
-		// 	scaleX : 0.75,
-		// 	scaleY : 0.75
-		// }));
-
 			    		    //pause button
 	    this.addChild(new TGE.Button().setup({
 	        x : this.percentageOfWidth(0.1),
 	        y : this.percentageOfHeight(0.95),
+	        scale: 1.3,
 	        image: "pause_button",
 	        pressFunction : this.pause.bind(this)
 
@@ -459,7 +406,8 @@ GameScreen.prototype = {
 			looping : false,
 			visible : true,
 			x : this.percentageOfWidth(0.03),
-			y : this.percentageOfHeight(0.95)
+			y : this.percentageOfHeight(0.95),
+			scale: 1.3
 		}));
 
 
@@ -485,10 +433,8 @@ GameScreen.prototype = {
 			loop : false
 		});
 
-		// this.obstacleLayer.getChildByName("wrong1");
-		// this.obstacleLayer.getChildByName("wrong2");
-
 		this.obstacleLayer.removeChildren();
+
 		//Increase coins
 		this.mCoins += 1;
 	},
@@ -590,7 +536,6 @@ GameScreen.prototype = {
 
 		this.mPlayer.mHorizontalSpeed = this.pauseSpeed;
 
-		
 	}
 }
 extend(GameScreen, TGE.Window);

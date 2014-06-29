@@ -4,7 +4,7 @@ var GameConfig = {
     LOG_LEVEL: 3,
 
     GAME_ID: 'com.tresensa.test-game',
-    TITLE: 'TreSensa Starter Template',
+    TITLE: 'ColorChase',
     VERSION: '1.0.0',
 
     ORIENTATION: 'landscape',   

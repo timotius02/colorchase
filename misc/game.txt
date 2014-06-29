@@ -1,0 +1,18 @@
+Game Title: ColorChase
+
+Short Game Title: ColorChase
+
+Description: ColorChase is a brain-training memory game that tests the user's ability to multitask. The magic-themed game challenges users to correctly match the MEANING of a colorful word--thus disregarding the actual color of the word--with the correct colored circle. Enticing neon colors and a sophisticated magic theme create a thrilling visual experience for gamers of all ages! How long will you chase?
+
+Short Description: ColorChase is a brain training memory game that combines the concept of matching colors with neon colors and a sophisticated magic theme to 
+
+Key Words: colors, arcade, runner, brain, training, memory, matching, game, magic, neon, swirls, endless, nycgentech
+
+Canvas Orientation: Landscape
+
+Canvas dimensions: 960 x 536 px
+
+Game primary category: Arcade, Endless Runner
+
+Features: Matching game, Randomly generated endless level, Unique Neon Magic Theme
+

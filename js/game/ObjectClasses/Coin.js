@@ -37,7 +37,6 @@ Coin.prototype = {
 		}	
 	},
 	
-	
 }
 
 extend(Coin, TGE.Sprite);

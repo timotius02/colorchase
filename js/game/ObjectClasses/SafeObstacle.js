@@ -24,21 +24,17 @@ SafeObstacle.prototype = {
 		// Ceiling pulley
 		if (type == 1) {  								
 			params.image = "stationary_obstacle_1";
-			//params.worldY = 400;
+
 				params.worldY = 400;
 		}	
 		
 		// Pile of bolts
 		else if (type == 2) {  							
-			//params.image = "stationary_obstacle_2";
-			//params.worldY = 0;
-				//params.worldY = 400;
+
 		}
 
 		else if (type == 3) {//						
-			//params.image = "stationary_obstacle_3";
-			//params.worldY = 0;
-				//params.worldY = 200;
+
 		}
 		
 	},

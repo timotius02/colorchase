@@ -35,12 +35,14 @@ StartScreen = function() {
         looping : false,
         visible : true,
         x : this.percentageOfWidth(0.03),
-        y : this.percentageOfHeight(0.95)
+        y : this.percentageOfHeight(0.94),
+        scale: 1.3
     }));
         //question button
     this.addChild(new TGE.Button().setup({
-        x : this.percentageOfWidth(0.97),
-        y : this.percentageOfHeight(0.95),
+        x : this.percentageOfWidth(0.96),
+        y : this.percentageOfHeight(0.94),
+        scale: 1.3,
         image: "question_button",
         pressFunction : this.question.bind(this)
     }));
@@ -120,8 +122,9 @@ StartScreen.prototype = {
             image: "introscreen_1"
         }));
         this.addChild(new TGE.Button().setup({
-            x : this.percentageOfWidth(0.97),
-            y : this.percentageOfHeight(0.95),
+            x : this.percentageOfWidth(0.96),
+            y : this.percentageOfHeight(0.94),
+            scale: 1.3,
             instanceName: "next_button",
             image: "next_button",
         pressFunction : this.question2.bind(this)
@@ -136,8 +139,9 @@ StartScreen.prototype = {
             image: "introscreen_2"
         }));
         this.addChild(new TGE.Button().setup({
-            x : this.percentageOfWidth(0.97),
-            y : this.percentageOfHeight(0.95),
+            x : this.percentageOfWidth(0.96),
+            y : this.percentageOfHeight(0.94),
+            scale: 1.3,
             instanceName: "next_button2",
             image: "next_button",
         pressFunction : this.clearInstruct.bind(this)

@@ -8,20 +8,6 @@ EndScreen = function() {
         image: "endscreen_background",
     }));
     
- //    // Display distance traveled
-	// this.addChild(this.distanceDisplay = new TGE.Text().setup({
- //        x : this.percentageOfWidth(0.9),
- //        y : this.percentageOfHeight(0.25),
- //        font : "Tahoma 20px",
- //    }));
-
- //    // Display coins earned
-	// this.addChild(this.coinDisplay = new TGE.Text().setup({
- //        x : this.percentageOfWidth(0.9),
- //        y : this.percentageOfHeight(0.32),
- //        font : "Tahoma 20px",
- //    }));
-
     // Display final score
     this.addChild(this.coinDisplay = new TGE.Text().setup({
         x : this.percentageOfWidth(0.33),
@@ -66,8 +52,6 @@ EndScreen.prototype = {
 		EndScreen.superclass.setup.call(this, params);
 
 		// Update final totals
-		//this.coinDisplay.text = params.coins.toString();
-		//this.distanceDisplay.text = params.distance.toString();
 		this.coinDisplay.text = params.coins.toString();
 
        return this;
