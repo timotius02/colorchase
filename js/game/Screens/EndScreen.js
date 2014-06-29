@@ -52,7 +52,7 @@ EndScreen.prototype = {
             x: this.percentageOfWidth(0.6),
             y: this.percentageOfHeight(0.15),
             shareMessage: "I just scored " + this.coinDisplay.text + " on ColorChase!",
-            shareImage: "startscreen_background"
+            shareImage: "startscreen.jpg"
         });
 
        return this;
@@ -96,7 +96,7 @@ EndScreen.prototype = {
             x: this.percentageOfWidth(0.6),
             y: this.percentageOfHeight(0.15),
             shareMessage: "I just scored " + this.coinDisplay.text + " on ColorChase!",
-            shareImage: "startscreen_background"
+            shareImage: "startscreen.jpg"
         });
 
     }
