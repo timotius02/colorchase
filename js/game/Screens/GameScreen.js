@@ -479,11 +479,11 @@ GameScreen.prototype = {
 
 	PlayerHitCoin : function(params) 
 	{
-		// //Play sound
-		// TGE.Game.GetInstance().audioManager.Play({
-		// 	id : 'hitCoin_sound',
-		// 	loop : '0'
-		// });
+		//Play sound
+		TGE.Game.GetInstance().audioManager.Play({
+			id : 'hitCoin_sound',
+			loop : '0'
+		});
 
 		// this.obstacleLayer.getChildByName("wrong1");
 		// this.obstacleLayer.getChildByName("wrong2");
