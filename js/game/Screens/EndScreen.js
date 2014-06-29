@@ -22,7 +22,7 @@ EndScreen = function() {
         y : this.percentageOfHeight(0.75),
         scale: .5,
         image: "playagain_button",
-        pressFunction : this.PlayAgain.bind(this),
+        pressFunction : this.PlayAgain.bind(this)
     }));
     //credits
     this.addChild(new TGE.Button().setup({
@@ -30,7 +30,7 @@ EndScreen = function() {
         y : this.percentageOfHeight(0.75),
         scale: .5,
         image: "credits_button",
-        pressFunction : this.credits.bind(this),
+        pressFunction : this.credits.bind(this)
     }));
 
     
@@ -51,6 +51,7 @@ EndScreen.prototype = {
         this.widget = TGS.Widget.CreateWidget({
             x: this.percentageOfWidth(0.6),
             y: this.percentageOfHeight(0.15),
+            shareImage: "startscreen_background",
             shareMessage: "I just scored " + this.coinDisplay.text + " on ColorChase!"
         });
         console.log(this.widget.shareImage);
@@ -95,6 +96,7 @@ EndScreen.prototype = {
         this.widget = TGS.Widget.CreateWidget({
             x: this.percentageOfWidth(0.6),
             y: this.percentageOfHeight(0.15),
+            shareImage: "startscreen_background",
             shareMessage: "I just scored " + this.coinDisplay.text + " on ColorChase!"
         });
 
