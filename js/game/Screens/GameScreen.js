@@ -69,7 +69,7 @@ GameScreen.prototype = {
 		//Play background music
 		TGE.Game.GetInstance().audioManager.Play({ 
 			id:'background_music', 
-			loop:'1' 
+			loop:true 
 		});
 	},
 
@@ -482,7 +482,7 @@ GameScreen.prototype = {
 		//Play sound
 		TGE.Game.GetInstance().audioManager.Play({
 			id : 'hitCoin_sound',
-			loop : '0'
+			loop : false
 		});
 
 		// this.obstacleLayer.getChildByName("wrong1");
@@ -498,16 +498,16 @@ GameScreen.prototype = {
 		TGE.Game.GetInstance().audioManager.StopAll();
 
 		//Play sound
-		// TGE.Game.GetInstance().audioManager.Play({
-		// 	id : 'hitObstacle_sound',
-		// 	loop : '0'
-		// });
+		TGE.Game.GetInstance().audioManager.Play({
+			id : 'hitObstacle_sound',
+			loop : false
+		});
 
 		//End game
 
-		// setTimeout(function(){
+		setTimeout(function(){
 			this.EndGame();
-		// }.bind(this), 2000);
+		}.bind(this), 1000);
 	},
 	
 	GetScore : function() {

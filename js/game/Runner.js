@@ -61,7 +61,7 @@ Runner = function()
         
         //Sounds
         {id:'background_music',			url:'sounds/background_music.mp3',		assetType:"audio"},
-        // {id:'hitObstacle_sound',		url:'sounds/hitObstacle_sound.mp3',		assetType:"audio"},
+        {id:'hitObstacle_sound',		url:'sounds/laser.wav',		            assetType:"audio"},
         {id:'hitCoin_sound',			url:'sounds/blop.mp3',			        assetType:"audio"} 
       ]);
 

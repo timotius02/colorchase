@@ -77,7 +77,7 @@ StartScreen = function() {
     //Play sound
     TGE.Game.GetInstance().audioManager.Play({
         id : 'background_music',
-        loop : '1'
+        loop : true
     });
 }
 
