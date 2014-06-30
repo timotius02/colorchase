@@ -58,7 +58,7 @@ Runner = function()
         //Sounds
         {id:'background_music',			url:'sounds/background_music.ogg',		backup_url:'sounds/background_music.mp3',   assetType:"audio"},
         {id:'hitObstacle_sound',		url:'sounds/laser.ogg',		            backup_url:'sounds/laser.mp3',              assetType:"audio"},
-        {id:'hitCoin_sound',			url:'sounds/blop.ogg',			        backup_url:'sounds/blop.mp3',               assetType:"audio"} 
+        {id:'hitCoin_sound',			url:'sounds/blop.ogg',			        backup_url:'sounds/blop.mp3',               assetType:"audio"}, 
       ]);
 
     TGE.FirstGameWindow = StartScreen;
