@@ -74,6 +74,7 @@ EndScreen.prototype = {
 
     credits: function(){
         if (this.widget != null && typeof this.widget !== "undefined"){
+            delete this.widget.closeCallback;
             this.widget.close();
         }
         this.addChild(new TGE.Sprite().setup({
