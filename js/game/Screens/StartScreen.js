@@ -30,18 +30,6 @@ StartScreen = function() {
         y : this.percentageOfHeight(0.8),    
     }));
 
-    this.buttonSprite2 = this.addChild(new TGE.SpriteSheetAnimation().setup({
-        image : "mute_button",
-        rows : 1,
-        columns : 2,
-        totalFrames : 2,
-        fps : 0,
-        looping : false,
-        visible : true,
-        x : this.percentageOfWidth(0.03),
-        y : this.percentageOfHeight(0.94),
-        scale: 1.3
-    }));
         //question button
     this.addChild(new TGE.Button().setup({
         x : this.percentageOfWidth(0.96),
@@ -52,16 +40,6 @@ StartScreen = function() {
     }));
 
 
-
-    //mute button
-    this.addChild(new TGE.Button().setup({
-        x : this.percentageOfWidth(0.03),
-        y : this.percentageOfHeight(0.95),
-        width: this.buttonSprite2.width,
-        height: this.buttonSprite2.height,
-        alpha: 0,
-        pressFunction : this.muteSound.bind(this)
-    }));
 
     //play button
     this.addChild(new TGE.Button().setup({
@@ -101,20 +79,6 @@ StartScreen.prototype = {
 
 	},
 
-    muteSound : function(){
-
-        if(this.music){
-            this.buttonSprite2.gotoAndStop(1);
-            TGE.Game.GetInstance().audioManager.Mute();
-            this.music = 0;
-        }
-        else{
-            this.buttonSprite2.gotoAndStop(0);  
-            TGE.Game.GetInstance().audioManager.Unmute();
-            this.music = 1;
-        }
-        
-    },
     question : function(){
         this.getChildByName("play_button").enabled = false;
         this.addChild(new TGE.Sprite().setup({
