@@ -9,13 +9,13 @@ StartScreen = function() {
         image: "startscreen_background",
     }));
 
-        //Play sound
+    this.music = 1;
+
+            //Play sound
     TGE.Game.GetInstance().audioManager.Play({
         id : 'background_music',
         loop : true
     });
-
-    this.music = 1;
 
     this.buttonSprite = this.addChild(new TGE.SpriteSheetAnimation().setup({
         image : "play_button",
