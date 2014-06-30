@@ -88,6 +88,10 @@ StartScreen.prototype = {
 
         // TGE.Game.GetInstance().audioManager.StopAll();
 
+        if(TGE.Game.GetInstance().audioManager.isMuted()){
+            TGE.Game.GetInstance().audioManager.Unmute();
+        }
+
         //go to game
 		this.transitionToWindow({
 			windowClass : GameScreen,

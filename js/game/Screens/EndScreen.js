@@ -1,5 +1,6 @@
 EndScreen = function() {
     EndScreen.superclass.constructor.apply(this, arguments);
+    TGE.Game.GetInstance().audioManager.Mute();
     
     // Background image
     this.addChild(new TGE.Sprite().setup({
@@ -65,6 +66,7 @@ EndScreen.prototype = {
     },
 
     PlayAgain : function() {
+        TGE.Game.GetInstance().audioManager.StopAll();
 
         if (this.widget != null && typeof this.widget !== "undefined"){
             this.widget.close();
