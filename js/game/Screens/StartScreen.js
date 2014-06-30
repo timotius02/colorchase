@@ -11,11 +11,11 @@ StartScreen = function() {
 
     this.music = 1;
 
-            //Play sound
-    TGE.Game.GetInstance().audioManager.Play({
-        id : 'background_music',
-        loop : true
-    });
+    //         //Play sound
+    // TGE.Game.GetInstance().audioManager.Play({
+    //     id : 'background_music',
+    //     loop : true
+    // });
 
     this.buttonSprite = this.addChild(new TGE.SpriteSheetAnimation().setup({
         image : "play_button",
@@ -86,7 +86,7 @@ StartScreen.prototype = {
 
 	gotoGameScreen : function() {
 
-        TGE.Game.GetInstance().audioManager.StopAll();
+        // TGE.Game.GetInstance().audioManager.StopAll();
 
         //go to game
 		this.transitionToWindow({

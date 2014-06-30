@@ -50,22 +50,26 @@ EndScreen.prototype = {
             x: this.percentageOfWidth(0.6),
             y: this.percentageOfHeight(0.15),
             shareImage: 'http://i1292.photobucket.com/albums/b561/Timotius_Sitorus/940x408_zps1b18df93.png',
-            shareMessage: "I just scored " + this.coinDisplay.text + " on ColorChase!"
+            shareMessage: "I just scored " + this.coinDisplay.text + " on ColorChase!",
+            closeCallback: this.onClose.bind(this)
         });
-        console.log(this.widget.shareImage);
 
        return this;
    },
 
+    onClose :function(){
+        this.transitionToWindow({
+            windowClass : StartScreen,
+            fadeTime : 0.75
+        });      
+    },
+
     PlayAgain : function() {
+
         if (this.widget != null && typeof this.widget !== "undefined"){
             this.widget.close();
         }
 
-        this.transitionToWindow({
-           windowClass : StartScreen,
-           fadeTime : 0.75
-       });
     },
 
     credits: function(){
@@ -95,7 +99,8 @@ EndScreen.prototype = {
             x: this.percentageOfWidth(0.6),
             y: this.percentageOfHeight(0.15),
             shareImage: 'http://i1292.photobucket.com/albums/b561/Timotius_Sitorus/940x408_zps1b18df93.png',
-            shareMessage: "I just scored " + this.coinDisplay.text + " on ColorChase!"
+            shareMessage: "I just scored " + this.coinDisplay.text + " on ColorChase!",
+            closeCallback: this.onClose.bind(this)
         });
 
     }
