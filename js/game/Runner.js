@@ -15,14 +15,14 @@ Runner = function()
         {id:'stationary_obstacle_7',    url:'stationaryObstacles/stationary_obstacle_7.png'},
         {id:'stationary_obstacle_8',    url:'stationaryObstacles/stationary_obstacle_8.png'},
 
-        {id:'blue',    url:'screens/blue.png'},
-        {id:'green',    url:'screens/green.png'},
-        {id:'pink',    url:'screens/pink.png'},
-        {id:'white',    url:'screens/white.png'},
-        {id:'yellow',    url:'screens/yellow.png'},
-        {id:'red',    url:'screens/red.png'},
-        {id:'orange',    url:'screens/orange.png'},
-        {id:'purple',    url:'screens/purple.png'},
+        {id:'blue',     url:'colorwords/blue.png'},
+        {id:'green',    url:'colorwords/green.png'},
+        {id:'pink',     url:'colorwords/pink.png'},
+        {id:'white',    url:'colorwords/white.png'},
+        {id:'yellow',   url:'colorwords/yellow.png'},
+        {id:'red',      url:'colorwords/red.png'},
+        {id:'orange',   url:'colorwords/orange.png'},
+        {id:'purple',   url:'colorwords/purple.png'},
 
 
 

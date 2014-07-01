@@ -11,12 +11,6 @@ StartScreen = function() {
 
     this.music = 1;
 
-    //         //Play sound
-    // TGE.Game.GetInstance().audioManager.Play({
-    //     id : 'background_music',
-    //     loop : true
-    // });
-
     this.buttonSprite = this.addChild(new TGE.SpriteSheetAnimation().setup({
         image : "play_button",
         rows : 1,
@@ -30,17 +24,6 @@ StartScreen = function() {
         y : this.percentageOfHeight(0.8),    
     }));
 
-        //question button
-    this.addChild(new TGE.Button().setup({
-        x : this.percentageOfWidth(0.96),
-        y : this.percentageOfHeight(0.94),
-        scale: 1.3,
-        image: "question_button",
-        pressFunction : this.question.bind(this)
-    }));
-
-
-
     //play button
     this.addChild(new TGE.Button().setup({
         x : this.buttonSprite.x,
@@ -49,7 +32,7 @@ StartScreen = function() {
         width: this.buttonSprite.width,
         height: this.buttonSprite.height,
         alpha: 0,
-        pressFunction : this.gotoGameScreen.bind(this),
+        pressFunction : this.instruct.bind(this),
         instanceName: "play_button",
 
     }));
@@ -64,40 +47,19 @@ StartScreen.prototype = {
 
 	gotoGameScreen : function() {
 
-        // TGE.Game.GetInstance().audioManager.StopAll();
-
         if(TGE.Game.GetInstance().audioManager.isMuted()){
             TGE.Game.GetInstance().audioManager.Unmute();
         }
 
         //go to game
-		this.transitionToWindow({
-			windowClass : GameScreen,
-			fadeTime : 0.75
-		});
+        this.transitionToWindow({
+         windowClass : GameScreen,
+         fadeTime : 0.75
+     });
 
 
-	},
-
-    question : function(){
-        this.getChildByName("play_button").enabled = false;
-        this.addChild(new TGE.Sprite().setup({
-            x : this.percentageOfWidth(0.5),
-            y : this.percentageOfHeight(0.5),
-            instanceName: "introscreen_1",
-            image: "introscreen_1"
-        }));
-        this.addChild(new TGE.Button().setup({
-            x : this.percentageOfWidth(0.96),
-            y : this.percentageOfHeight(0.94),
-            scale: 1.3,
-            instanceName: "next_button",
-            image: "next_button",
-        pressFunction : this.question2.bind(this)
-        }));
     },
-
-    question2 : function(){
+    instruct : function(){
         this.addChild(new TGE.Sprite().setup({
             x : this.percentageOfWidth(0.5),
             y : this.percentageOfHeight(0.5),
@@ -110,14 +72,9 @@ StartScreen.prototype = {
             scale: 1.3,
             instanceName: "next_button2",
             image: "next_button",
-        pressFunction : this.clearInstruct.bind(this)
+            pressFunction : this.gotoGameScreen.bind(this)
         }));
-    },
-    clearInstruct: function(){
-        this.removeChildByName(["introscreen_1", "introscreen_2", "next_button", "next_button2"]);
-        this.getChildByName("play_button").enabled = true;
     }
-	
 }
 
 extend(StartScreen, TGE.Window);

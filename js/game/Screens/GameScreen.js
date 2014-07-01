@@ -270,7 +270,7 @@ GameScreen.prototype = {
 
 		this.obstacleLayer.addChild(new SafeObstacle().setup({
 			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + genRandInt(-250, 250),
-			name: "right",
+			instanceName: "right",
 			type : "2",
 			worldY: heights[0],
 			image :"stationary_obstacle_"+ (++num),
@@ -433,7 +433,7 @@ GameScreen.prototype = {
 			loop : false
 		});
 
-		this.obstacleLayer.removeChildren();
+		this.obstacleLayer.removeChildByName("right");
 
 		//Increase coins
 		this.mCoins += 1;

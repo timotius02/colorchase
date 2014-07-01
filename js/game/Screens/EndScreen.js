@@ -1,5 +1,6 @@
 EndScreen = function() {
     EndScreen.superclass.constructor.apply(this, arguments);
+    TGE.Game.GetInstance().audioManager.StopAll();
     TGE.Game.GetInstance().audioManager.Mute();
     
     // Background image
@@ -59,15 +60,15 @@ EndScreen.prototype = {
    },
 
     onClose :function(){
+        TGE.Game.GetInstance().audioManager.StopAll();
+        TGE.Game.GetInstance().audioManager.Unmute();
         this.transitionToWindow({
-            windowClass : StartScreen,
+            windowClass : GameScreen,
             fadeTime : 0.75
         });      
     },
 
     PlayAgain : function() {
-        TGE.Game.GetInstance().audioManager.StopAll();
-
         if (this.widget != null && typeof this.widget !== "undefined"){
             this.widget.close();
         }
