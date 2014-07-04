@@ -38,6 +38,8 @@ GameScreen = function(width, height) {
 	this.currKey = "None";
 	this.pauseSpeed = 0;
 	this.pauseGravitySpeed = 0;
+	this.wave = 1;
+	this.curwave = 1;
 };
 
 GameScreen.prototype = {
@@ -259,6 +261,7 @@ GameScreen.prototype = {
 
 		heights = shuffle(heights);
 
+		
 
 		this.obstacleLayer.addChild(new SafeObstacle().setup({
 			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + -600,
@@ -270,7 +273,7 @@ GameScreen.prototype = {
 
 		this.obstacleLayer.addChild(new SafeObstacle().setup({
 			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + genRandInt(-250, 250),
-			instanceName: "right",
+			instanceName: "right" + this.wave,
 			type : "2",
 			worldY: heights[0],
 			image :"stationary_obstacle_"+ (++num),
@@ -293,6 +296,8 @@ GameScreen.prototype = {
 			image :"stationary_obstacle_" + (++notCorrect2),
 			gameScreen : this
 		}));
+
+		this.wave++;
 
 	},
 
@@ -433,7 +438,8 @@ GameScreen.prototype = {
 			loop : false
 		});
 
-		this.obstacleLayer.removeChildByName("right");
+		this.obstacleLayer.removeChildByName("right"+this.curwave);
+		this.curwave++;
 
 		//Increase coins
 		this.mCoins += 1;

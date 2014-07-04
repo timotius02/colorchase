@@ -39,7 +39,6 @@ Runner = function()
         // Backgrounds
         {id:'startscreen_background',   url:'screens/startscreen.jpg'},
         {id:'endscreen_background',   	url:'screens/endscreen.jpg'},
-        {id:'gamescreen_ground',   		url:'screens/blue.png'},
         {id:'gamescreen_middleground',  url:'screens/gamescreen.jpg'},
         {id:'introscreen_1',            url:'screens/introscreen1.jpg'},
         {id:'introscreen_2',            url:'screens/introscreen2.jpg'},
