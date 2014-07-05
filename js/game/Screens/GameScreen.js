@@ -388,7 +388,7 @@ GameScreen.prototype = {
 			x : 90,
 			y : 30,
 			text : "Score: 0",
-			font : "Tahoma 20px",
+			font : "40px Comfortaa",
 			color : "white"
 		}));
 		

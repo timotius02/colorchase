@@ -14,7 +14,7 @@ EndScreen = function() {
     this.addChild(this.coinDisplay = new TGE.Text().setup({
         x : this.percentageOfWidth(0.33),
         y : this.percentageOfHeight(0.54),
-        font : "60px Tahoma",
+        font : "60px Comfortaa",
         color: "white"
     }));
     

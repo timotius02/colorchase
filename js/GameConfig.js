@@ -26,6 +26,7 @@ var GameConfig = {
     ],
 
     CSS: [
+        "main.css"
     ],
 
     EXCLUDE: [
@@ -43,7 +44,7 @@ var GameConfig = {
 
     TGE: {
         ENABLED: true,
-        FONT_LOADER: true,
+        FONT_LOADER: false,
         VERSION: '1.0'
     }
 };
