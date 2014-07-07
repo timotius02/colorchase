@@ -450,6 +450,7 @@ GameScreen.prototype = {
 
 	 	this.mPlayer.animArray["run"].stop();
 
+
  		this.obstacleLayer.getChildByName("right" + this.curwave).removeEventListenersFor("update");
  		this.obstacleLayer.getChildByName("wrong1").removeEventListenersFor("update");
 		this.obstacleLayer.getChildByName("wrong2").removeEventListenersFor("update");
