@@ -37,7 +37,7 @@ Runner = function()
         {id:'player_running',   		url:'player/player_running.png'},
 
         // Backgrounds
-        {id:'startscreen_background',   url:'screens/startscreen.jpg'},
+        {id:'startscreen_background',   url:'screens/startscreen.png'},
         {id:'endscreen_background',   	url:'screens/endscreen.png'},
         {id:'gamescreen_middleground',  url:'screens/gamescreen.png'},
         {id:'introscreen',            url:'screens/introscreen.png'},

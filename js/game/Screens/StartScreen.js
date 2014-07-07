@@ -74,6 +74,15 @@ StartScreen.prototype = {
             image: "next_button",
             pressFunction : this.gotoGameScreen.bind(this)
         }));
+
+        this.addChild(new TGE.Button().setup({
+            x : this.percentageOfWidth(0.5),
+            y : this.percentageOfHeight(0.5),
+            width: this.percentageOfWidth(1),
+            height: this.percentageOfHeight(1),
+            alpha: 0,
+            pressFunction : this.gotoGameScreen.bind(this)
+        }));
     }
 }
 
