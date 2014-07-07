@@ -63,8 +63,8 @@ StartScreen.prototype = {
         this.addChild(new TGE.Sprite().setup({
             x : this.percentageOfWidth(0.5),
             y : this.percentageOfHeight(0.5),
-            instanceName: "introscreen_2",
-            image: "introscreen_2"
+            instanceName: "introscreen",
+            image: "introscreen"
         }));
         this.addChild(new TGE.Button().setup({
             x : this.percentageOfWidth(0.96),

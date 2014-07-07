@@ -42,7 +42,7 @@ SafeObstacle.prototype = {
 
 	DetectCollisions : function(event) 
 	{
-
+		this.rotation+=2;
 		var playerBounds = this.mGame.GetPlayer().getBounds();
 		var coinBounds = this.getBounds();
 		if (coinBounds.intersects(playerBounds, 0.7, 0.7)) {

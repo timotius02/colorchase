@@ -19,6 +19,7 @@ var GameConfig = {
 	    "js/game/ObjectClasses/StationaryObstacle.js",
 	    "js/game/ObjectClasses/MovingObstacle.js",
         "js/game/ObjectClasses/SafeObstacle.js",
+        "js/game/ObjectClasses/ColorWord.js",
 	    
 	    "js/game/Screens/GameScreen.js",
 	    "js/game/Screens/EndScreen.js",

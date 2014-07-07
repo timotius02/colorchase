@@ -263,9 +263,8 @@ GameScreen.prototype = {
 
 		
 
-		this.obstacleLayer.addChild(new SafeObstacle().setup({
+		this.obstacleLayer.addChild(new ColorWord().setup({
 			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + -600,
-			type : "2",
 			worldY: -60,
 			image :this.colors[num],
 			gameScreen : this
@@ -281,7 +280,7 @@ GameScreen.prototype = {
 		}));
 		this.obstacleLayer.addChild(new StationaryObstacle().setup({
 			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + genRandInt(-250, 250),
-			name: "wrong1",
+			instanceName: "wrong1",
 			type : "2",
 			worldY: heights[1],
 			image :"stationary_obstacle_" + (++notCorrect1),
@@ -290,7 +289,7 @@ GameScreen.prototype = {
 
 		this.obstacleLayer.addChild(new StationaryObstacle().setup({
 			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + genRandInt(-250, 250),
-			name: "wrong2",
+			instanceName: "wrong2",
 			type : "2",
 			worldY: heights[2],
 			image :"stationary_obstacle_" + (++notCorrect2),
@@ -451,6 +450,10 @@ GameScreen.prototype = {
 
 	 	this.mPlayer.animArray["run"].stop();
 
+ 		this.obstacleLayer.getChildByName("right" + this.curwave).removeEventListenersFor("update");
+ 		this.obstacleLayer.getChildByName("wrong1").removeEventListenersFor("update");
+		this.obstacleLayer.getChildByName("wrong2").removeEventListenersFor("update");
+
 		//Play sound
 		TGE.Game.GetInstance().audioManager.Play({
 			id : 'hitObstacle_sound',
@@ -494,6 +497,9 @@ GameScreen.prototype = {
 
 			TGE.Game.GetInstance().audioManager.Mute();
 
+	 		this.obstacleLayer.getChildByName("right" + this.curwave).removeEventListenersFor("update");
+	 		this.obstacleLayer.getChildByName("wrong1").removeEventListenersFor("update");
+			this.obstacleLayer.getChildByName("wrong2").removeEventListenersFor("update");
 
 	 		this.pauseSpeed = this.mPlayer.mHorizontalSpeed;
 	 		this.pauseGravitySpeed = this.mPlayer.mVerticalSpeed;
@@ -534,7 +540,9 @@ GameScreen.prototype = {
 		TGE.Game.GetInstance().audioManager.Unmute();
 		this.mPlayer.mGroundHeight = 65;
 
-
+		this.obstacleLayer.getChildByName("right"+ this.curwave).addEventListener("update", this.obstacleLayer.getChildByName("right"+this.curwave).DetectCollisions);
+		this.obstacleLayer.getChildByName("wrong1").addEventListener("update", this.obstacleLayer.getChildByName("wrong1").DetectCollisions);
+		this.obstacleLayer.getChildByName("wrong2").addEventListener("update", this.obstacleLayer.getChildByName("wrong2").DetectCollisions);
 		this.mPlayer.mVerticalSpeed = this.pauseGravitySpeed;
 
 			// Event listeners

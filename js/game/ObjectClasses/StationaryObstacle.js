@@ -42,7 +42,8 @@ StationaryObstacle.prototype = {
 
 	DetectCollisions : function(event) 
 	{
-		
+			
+			this.rotation+=2;
 			var obstacleBuffer = 0.7;
 			var playerBuffer = 0.7;
 			var playerBounds = this.mGame.GetPlayer().getBounds();

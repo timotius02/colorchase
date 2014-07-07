@@ -13,15 +13,15 @@ EndScreen = function() {
     // Display final score
     this.addChild(this.coinDisplay = new TGE.Text().setup({
         x : this.percentageOfWidth(0.33),
-        y : this.percentageOfHeight(0.54),
-        font : "60px Comfortaa",
+        y : this.percentageOfHeight(0.64),
+        font : "68px Comfortaa",
         color: "white"
     }));
     
     // Try Again button
     this.addChild(new TGE.Button().setup({
         x : this.percentageOfWidth(0.17),
-        y : this.percentageOfHeight(0.75),
+        y : this.percentageOfHeight(0.8),
         scale: .5,
         image: "playagain_button",
         pressFunction : this.PlayAgain.bind(this)
@@ -29,7 +29,7 @@ EndScreen = function() {
     //credits
     this.addChild(new TGE.Button().setup({
         x : this.percentageOfWidth(0.4),
-        y : this.percentageOfHeight(0.75),
+        y : this.percentageOfHeight(0.8),
         scale: .5,
         image: "credits_button",
         pressFunction : this.credits.bind(this)
@@ -90,6 +90,7 @@ EndScreen.prototype = {
             x : this.percentageOfWidth(0.97),
             y : this.percentageOfHeight(0.95),
             instanceName: "next_button",
+            scale: 1.3,
             image: "next_button",
         pressFunction : this.back.bind(this)
         }));
