@@ -451,9 +451,9 @@ GameScreen.prototype = {
 	 	this.mPlayer.animArray["run"].stop();
 
 
- 		this.obstacleLayer.getChildByName("right" + this.curwave).removeEventListenersFor("update");
- 		this.obstacleLayer.getChildByName("wrong1").removeEventListenersFor("update");
-		this.obstacleLayer.getChildByName("wrong2").removeEventListenersFor("update");
+	 	for(var i =0; i < this.obstacleLayer.numChildren(); i++){
+			this.obstacleLayer.getChildAt(i).removeEventListenersFor("update");
+	 	}
 
 		//Play sound
 		TGE.Game.GetInstance().audioManager.Play({
