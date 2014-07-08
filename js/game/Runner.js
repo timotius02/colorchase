@@ -40,9 +40,10 @@ Runner = function()
         {id:'startscreen_background',   url:'screens/startscreen.png'},
         {id:'endscreen_background',   	url:'screens/endscreen.png'},
         {id:'gamescreen_middleground',  url:'screens/gamescreen.png'},
-        {id:'introscreen',            url:'screens/introscreen.png'},
+        {id:'introscreen',              url:'screens/introscreen.png'},
         {id:'credits_screen',           url:'screens/credits.png'},       
-        {id:'pause_screen',             url:'screens/pause.png'},       
+        {id:'pause_screen',             url:'screens/pause.png'},   
+        {id:'score',                    url:'screens/score.png'},       
            
         // Buttons
         {id:'play_button',   			url:'buttons/play_button.png'},

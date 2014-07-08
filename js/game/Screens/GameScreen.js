@@ -84,7 +84,7 @@ GameScreen.prototype = {
 		TGE.Game.GetInstance().mCameraLocation.x = this.mPlayer.worldX + 300;
 
 		// Update the distance and coin displays
-		this.coinDisplay.text = "Score: " + Math.floor(this.mCoins).toString();
+		this.coinDisplay.text = Math.floor(this.mCoins).toString();
 
 		// Read & make level
 		this.ReadNextEvent(event.elapsedTime);
@@ -265,7 +265,7 @@ GameScreen.prototype = {
 
 		this.obstacleLayer.addChild(new ColorWord().setup({
 			worldX : this.mPlayer.worldX + this.percentageOfWidth(1) * 2 + -600,
-			worldY: -60,
+			worldY: -50,
 			image :this.colors[num],
 			gameScreen : this
 		}));
@@ -382,11 +382,18 @@ GameScreen.prototype = {
 	},
 	
 	SetupHud : function() {
+		this.addChild(new TGE.Sprite().setup({
+			x: this.percentageOfWidth(0.08),
+			y: this.percentageOfHeight(0.05),
+			scale: 0.64,
+			image: "score"
+
+		}));
 		//Text that displays coins collected
 		this.coinDisplay = this.UILayer.addChild(new TGE.Text().setup({
-			x : 90,
-			y : 30,
-			text : "Score: 0",
+			x : this.percentageOfWidth(0.16),
+			y : this.percentageOfHeight(0.058),
+			text : "0",
 			font : "40px Comfortaa",
 			color : "white"
 		}));
@@ -444,11 +451,10 @@ GameScreen.prototype = {
 		this.mCoins += 1;
 	},
 	
-	PlayerHitObstacle : function() 
-	{
+	PlayerHitObstacle : function() {
+		this.mPlayer.animArray["run"].stop();
+		this.removeEventListenersFor("update");
 		TGE.Game.GetInstance().audioManager.StopAll();
-
-	 	this.mPlayer.animArray["run"].stop();
 
 
 	 	for(var i =0; i < this.obstacleLayer.numChildren(); i++){
