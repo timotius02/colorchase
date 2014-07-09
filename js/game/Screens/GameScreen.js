@@ -372,13 +372,24 @@ GameScreen.prototype = {
 	
 	SetupParallaxingPlanes : function() {
 
-		//Middle ground plane
+		//backgroundplane
 		this.artLayer.addChild(new TGE.ParallaxPane().setup({
-			image : "gamescreen_middleground",
+			image : "gamescreen_background",
+			worldY : 448,
+			trackingSpeed : 0.1 
+		}));
+
+		this.artLayer.addChild(new TGE.ParallaxPane().setup({
+			image : "gamescreen_midground",
 			worldY : 448,
 			trackingSpeed : 0.25 
 		}));
-		
+
+		this.artLayer.addChild(new TGE.ParallaxPane().setup({
+			image : "gamescreen_foreground",
+			worldY : 448,
+			trackingSpeed : 0.6
+		}));
 	},
 	
 	SetupHud : function() {
