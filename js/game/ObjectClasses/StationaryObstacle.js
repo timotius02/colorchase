@@ -44,11 +44,9 @@ StationaryObstacle.prototype = {
 	{
 			
 			this.rotation+=2;
-			var obstacleBuffer = 0.7;
-			var playerBuffer = 0.7;
 			var playerBounds = this.mGame.GetPlayer().getBounds();
 			var obstacleBounds = this.getBounds();
-			if (obstacleBounds.intersects(playerBounds, obstacleBuffer, playerBuffer)) {
+			if (obstacleBounds.intersects(playerBounds, 0.5, 0.5)) {
 				this.mGame.GetPlayer().mStopped = true;
 				this.mGame.PlayerHitObstacle();
 				this.markForRemoval();	

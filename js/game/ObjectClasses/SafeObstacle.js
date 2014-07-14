@@ -45,7 +45,7 @@ SafeObstacle.prototype = {
 		this.rotation+=2;
 		var playerBounds = this.mGame.GetPlayer().getBounds();
 		var coinBounds = this.getBounds();
-		if (coinBounds.intersects(playerBounds, 0.7, 0.7)) {
+		if (coinBounds.intersects(playerBounds, 0.5, 0.5)) {
 			this.mPickedUp = true;
         	this.mGame.PlayerHitCoin({cx:this.worldX,cy:this.worldY});
         	this.markForRemoval();
